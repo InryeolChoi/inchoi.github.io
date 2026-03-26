@@ -393,33 +393,6 @@ export const experienceItems: ExperienceItem[] = [
       ],
     },
   },
-  {
-    period: "2024 - Present",
-    company: {
-      ko: "개인 프로젝트",
-      en: "Independent Projects",
-    },
-    position: {
-      ko: "학습 시스템과 개발 워크플로우를 탐구하는 개인 프로젝트 중심 개발",
-      en: "Independent development focused on learning systems and developer workflows",
-    },
-    summary: {
-      ko: "학습 콘텐츠 구조화, 시험형 앱 구현, 데이터 실습 환경 구성처럼 서로 연결되는 프로젝트를 통해 제품 감각과 기술 기반을 함께 넓히고 있습니다.",
-      en: "Expanding both product sense and technical foundations through connected projects in study content structuring, exam-style app building, and database practice environments.",
-    },
-    highlights: {
-      ko: [
-        "React와 Next.js 기반 학습 UI 구현",
-        "FastAPI와 SQLite를 활용한 학습 앱 구조 실험",
-        "Markdown, GitHub Actions, DB 실습을 잇는 개인 개발 흐름 구축",
-      ],
-      en: [
-        "Built study-oriented UI with React and Next.js",
-        "Explored app architecture with FastAPI and SQLite",
-        "Created a personal workflow connecting markdown, GitHub Actions, and DB practice",
-      ],
-    },
-  },
 ];
 
 export const educationItems: EducationItem[] = [
