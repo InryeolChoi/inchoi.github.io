@@ -91,13 +91,13 @@ function App() {
 
         <main className={isExporting ? "pageContent exportMode" : "pageContent"} id="content" ref={cvRef}>
           <Hero locale={locale} />
-          <Skills locale={locale} />
           <Projects locale={locale} />
-          <Experience locale={locale} />
-          <Certifications />
-          <Other locale={locale} />
           <Education locale={locale} />
           <LearningHistory locale={locale} />
+          <Certifications />
+          <Experience locale={locale} />
+          <Other locale={locale} />
+          <Skills locale={locale} />
         </main>
         <footer className="pageFooter">
           <button className="cvButton" type="button" onClick={handleDownloadCv} disabled={isExporting}>
