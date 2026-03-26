@@ -30,24 +30,21 @@ export function Other({ locale }: OtherProps) {
             <div className="timelineBody">
               <p className="timelinePeriod">{item.period}</p>
               <h3>
-                {locale === "en" && item.organization.en.endsWith("KATUSA") ? (
-                  <>
-                    <span>{item.organization.en.replace(/ KATUSA$/, "")} </span>
-                    <button
-                      type="button"
-                      className="inlineInfoButton"
-                      aria-expanded={openInfoIndex === index}
-                      aria-controls={`other-info-${index}`}
-                      onClick={() => setOpenInfoIndex(openInfoIndex === index ? null : index)}
-                    >
-                      KATUSA
-                    </button>
-                  </>
+                {locale === "en" && item.organization.en === "KATUSA" ? (
+                  <button
+                    type="button"
+                    className="inlineInfoButton"
+                    aria-expanded={openInfoIndex === index}
+                    aria-controls={`other-info-${index}`}
+                    onClick={() => setOpenInfoIndex(openInfoIndex === index ? null : index)}
+                  >
+                    {item.organization.en}
+                  </button>
                 ) : (
                   item.organization[locale]
                 )}
               </h3>
-              {locale === "en" && item.organization.en.endsWith("KATUSA") && openInfoIndex === index ? (
+              {locale === "en" && item.organization.en === "KATUSA" && openInfoIndex === index ? (
                 <p className="inlineInfoNote" id={`other-info-${index}`}>
                   {t("katusaDescription")}
                 </p>

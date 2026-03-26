@@ -79,33 +79,119 @@ img {
   letter-spacing: 0.05em;
 }
 
-.languageToggle {
+.topGithubLink {
   display: inline-flex;
-  gap: 0.35rem;
-  padding: 0.35rem;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.8rem;
   border-radius: 999px;
   border: 1px solid var(--line);
-  background: #ffffff;
+  background: rgba(248, 250, 252, 0.85);
+  color: var(--ink-soft);
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
-.languageButton {
+.topGithubLink:hover,
+.topGithubLink:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(219, 234, 254, 0.7);
+  color: var(--ink-strong);
+}
+
+.topGithubLink svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.topGithubLink span {
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.floatingLanguageDock {
+  position: fixed;
+  right: clamp(1rem, 2vw, 1.6rem);
+  bottom: clamp(1rem, 2vw, 1.6rem);
+  z-index: 35;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.floatingLanguageDock.isHidden {
+  opacity: 0;
+  transform: translateY(18px);
+  pointer-events: none;
+}
+
+.floatingLanguageRail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.32rem;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 999px;
+  background: rgba(248, 250, 252, 0.84);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+  opacity: 0;
+  transform: translateX(12px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.floatingLanguageRail.isOpen {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
+}
+
+.floatingLanguageOption {
+  min-width: 3rem;
   border: 0;
   border-radius: 999px;
-  padding: 0.55rem 0.9rem;
+  padding: 0.7rem 0.95rem;
   background: transparent;
-  color: var(--ink-soft);
+  color: rgba(71, 85, 105, 0.88);
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.languageButton:hover,
-.languageButton:focus-visible {
+.floatingLanguageOption.active {
+  background: rgba(191, 219, 254, 0.72);
+  color: var(--ink-strong);
+  font-weight: 700;
+}
+
+.floatingLanguageTrigger {
+  width: 3.3rem;
+  height: 3.3rem;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 999px;
+  background: rgba(248, 250, 252, 0.88);
+  color: var(--ink-soft);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.12);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.floatingLanguageTrigger:hover,
+.floatingLanguageTrigger:focus-visible {
   transform: translateY(-1px);
+  background: rgba(239, 246, 255, 0.96);
+  color: var(--ink-strong);
 }
 
-.languageButton.active {
-  background: var(--ink-strong);
-  color: #fff8ef;
+.floatingLanguageTrigger.isOpen {
+  background: rgba(219, 234, 254, 0.92);
+  color: var(--ink-strong);
 }
 
 .pageContent {
@@ -805,6 +891,14 @@ img {
     padding-inline: 0.8rem;
   }
 
+  .topGithubLink {
+    padding-inline: 0.7rem;
+  }
+
+  .topGithubLink span {
+    display: none;
+  }
+
   .personalInfoRow {
     grid-template-columns: 1fr;
     gap: 0.35rem;
@@ -839,6 +933,21 @@ img {
 
   .anchorNav {
     gap: 0.5rem 0.8rem;
+  }
+
+  .floatingLanguageDock {
+    right: 0.85rem;
+    bottom: 0.85rem;
+  }
+
+  .floatingLanguageOption {
+    min-width: 2.75rem;
+    padding-inline: 0.8rem;
+  }
+
+  .floatingLanguageTrigger {
+    width: 3rem;
+    height: 3rem;
   }
 
   .stackSection {
