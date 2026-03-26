@@ -247,7 +247,7 @@ export const projectItems: ProjectItem[] = [
       en: "An IRC server has to manage multiple clients and channel states at once, so the architecture could quickly become tangled without a clear structure from the start.",
     },
     approach: {
-      ko: "서버의 큰 구조를 먼저 나누어 보고, 여러 소켓 이벤트를 어떻게 감시하고 처리하는지 멀티 `kqueue()` 흐름을 중심으로 이해하며 이벤트 기반 서버 동작 방식을 정리했습니다.",
+      ko: "서버의 큰 구조를 먼저 나누어 보고, 여러 소켓 이벤트를 어떻게 감시하고 처리하는지를 `kqueue()` 흐름을 중심으로 이해하며 이벤트 기반 서버 동작 방식을 정리했습니다.",
       en: "I focused on structuring the server first, then studied how multiple socket events are observed and processed through multi-`kqueue()` flow to understand event-driven server behavior.",
     },
     summary: {
