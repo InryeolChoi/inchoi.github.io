@@ -26,8 +26,8 @@ export const profile = {
     en: "Stay foolish, Stay hungry",
   },
   intro: {
-    ko: "늘 우직하게 도전하고, 늘 갈망하며 성장하려는 개발자 최인렬입니다. 학부 수업을 들으며 프로그래밍을 처음 접했고, 알고리즘 공부를 시작으로 42서울에 들어가며 개발을 더 깊이 있게 공부했습니다.\n\n처음에는 빅데이터를 통해 혁신적인 서비스를 개발해 보고 싶다는 마음으로 공부를 시작했지만, 데이터 분석을 공부할수록 데이터를 해석하는 일 자체보다 데이터를 어떻게 저장하고 관리하고 처리할지 구조를 설계하는 일에 더 큰 흥미를 느끼게 되었습니다.\n\n그 경험을 계기로 자연스럽게 컴퓨터공학 전반에 관심을 가지게 되었고, 지금은 백엔드 프로그래밍, 데이터베이스, 클라우드 같은 분야를 중심으로 꾸준히 공부하고 있습니다. 멈추지 않고 끊임없이 나아가며, 기술로 더 단단한 서비스를 만드는 개발자가 되고 싶습니다.",
-    en: "I am a developer who keeps moving forward with steady curiosity. I first encountered programming through university courses, then began studying more seriously through algorithms and continued that journey at 42 Seoul.\n\nAt first, I wanted to build innovative services through big data, but the more I studied data analysis, the more I became interested in designing how data is stored, managed, and processed.\n\nThat shift naturally led me deeper into computer science as a whole, and I am now continuously studying backend programming, databases, and cloud technologies. I want to keep growing and build stronger services through technology.",
+    ko: "백엔드 시스템의 구조와 흐름을 이해하고 설계하는 개발자를 지향합니다. 늘 우직하게 도전하고, 늘 갈망하며 성장하려는 개발자 최인렬입니다. 학부 수업을 들으며 프로그래밍을 처음 접했고, 알고리즘 공부를 시작으로 42서울에 들어가며 개발을 더 깊이 있게 공부했습니다.\n\n처음에는 빅데이터를 통해 혁신적인 서비스를 개발해 보고 싶다는 마음으로 공부를 시작했지만, 데이터 분석을 공부할수록 데이터를 해석하는 일 자체보다 데이터를 어떻게 저장하고 관리하고 처리할지 구조를 설계하는 일에 더 큰 흥미를 느끼게 되었습니다.\n\n그 경험을 계기로 자연스럽게 컴퓨터공학 전반에 관심을 가지게 되었고, 지금은 백엔드 프로그래밍, 데이터베이스, 클라우드 같은 분야를 중심으로 꾸준히 공부하고 있습니다. 멈추지 않고 끊임없이 나아가며, 기술로 더 단단한 서비스를 만드는 개발자가 되고 싶습니다.",
+    en: "I aspire to become a developer who understands and designs the structure and flow of backend systems. I am a developer who keeps moving forward with steady curiosity. I first encountered programming through university courses, then began studying more seriously through algorithms and continued that journey at 42 Seoul.\n\nAt first, I wanted to build innovative services through big data, but the more I studied data analysis, the more I became interested in designing how data is stored, managed, and processed.\n\nThat shift naturally led me deeper into computer science as a whole, and I am now continuously studying backend programming, databases, and cloud technologies. I want to keep growing and build stronger services through technology.",
   },
   email: "dlsfuf0316@gmail.com",
   location: {
@@ -283,8 +283,8 @@ export const projectItems: ProjectItem[] = [
       en: "I focused on structuring the server first, then studied how multiple socket events are observed and processed through multi-`kqueue()` flow to understand event-driven server behavior.",
     },
     summary: {
-      ko: "여러 사용자 연결을 처리하는 IRC 서버를 구현하며 네트워크 서버 구조와 이벤트 기반 입출력 방식을 학습한 프로젝트입니다.",
-      en: "A project where I learned network server architecture and event-driven I/O while implementing an IRC server that handles multiple user connections.",
+      ko: "여러 사용자 연결을 처리하는 IRC 서버를 구현하며 네트워크 서버 구조와 이벤트 기반 입출력 방식을 학습한 프로젝트입니다. 대규모 동시 연결 환경에서도 서버 구조가 쉽게 무너지지 않도록 이벤트 기반 구조를 설계하고 안정적으로 동작하는 서버를 구현해보았습니다.",
+      en: "A project where I learned network server architecture and event-driven I/O while implementing an IRC server that handles multiple user connections. I focused on designing an event-driven structure that could stay stable even under heavy concurrent connections.",
     },
     highlights: {
       ko: [
@@ -315,8 +315,8 @@ export const projectItems: ProjectItem[] = [
       en: "I studied how commands are parsed into executable structures and built the pipe flow that connects multiple commands, which helped me understand how a shell executes user input.",
     },
     summary: {
-      ko: "쉘이 입력을 해석하고 여러 명령을 연결해 실행하는 과정을 직접 구현하며 파싱과 프로세스 흐름을 익힌 프로젝트입니다.",
-      en: "A project where I implemented how a shell interprets input and connects commands, learning parsing and process flow along the way.",
+      ko: "쉘이 입력을 해석하고 여러 명령을 연결해 실행하는 과정을 직접 구현하며 파싱과 프로세스 흐름을 익힌 프로젝트입니다. 쉘 명령 실행의 복잡도를 낮추기 위해 파싱 결과를 실행 구조로 변환하는 흐름을 설계하고, pipe 기반 프로세스 연결 구조를 직접 구현했습니다.",
+      en: "A project where I implemented how a shell interprets input and connects commands, learning parsing and process flow along the way. To reduce the complexity of shell execution, I designed a flow that transforms parsing results into execution structures and implemented the pipe-based process chaining directly.",
     },
     highlights: {
       ko: [
@@ -343,8 +343,8 @@ export const projectItems: ProjectItem[] = [
       en: "A service-style web project required the API server, authentication, security, database, and runtime environment to work together, so the backend had to be designed as an integrated system.",
     },
     approach: {
-      ko: "Django와 Django REST Framework로 백엔드를 구축하고, 42 OAuth 로그인과 JWT 발급 흐름을 연결했습니다. 여기에 이메일 기반 2차 인증 링크를 붙여 인증 단계를 강화했고, PostgreSQL과 Docker Compose로 실행 환경까지 함께 구성했습니다.",
-      en: "I built the backend with Django and Django REST Framework, connected 42 OAuth login with JWT issuance, added email-based two-factor verification links, and set up the runtime environment with PostgreSQL and Docker Compose.",
+      ko: "Django와 Django REST Framework로 백엔드를 구축하고, 42 OAuth 로그인과 JWT 발급 흐름을 연결했습니다. 인증 실패나 토큰 만료 상황에서도 사용자 경험이 끊기지 않도록 JWT 재발급 구조를 설계해 전체 인증 흐름에 통합했고, 여기에 이메일 기반 2차 인증 링크를 붙여 인증 단계를 강화했습니다. PostgreSQL과 Docker Compose로 실행 환경까지 함께 구성했습니다.",
+      en: "I built the backend with Django and Django REST Framework, connected 42 OAuth login with JWT issuance, and designed a JWT refresh flow so the overall authentication experience would remain stable even when authentication fails or tokens expire. I also added email-based two-factor verification links and set up the runtime environment with PostgreSQL and Docker Compose.",
     },
     summary: {
       ko: "실제 웹 서비스 흐름을 기준으로 인증과 데이터 저장, 실행 환경까지 포함한 백엔드를 구축해본 프로젝트입니다.",
