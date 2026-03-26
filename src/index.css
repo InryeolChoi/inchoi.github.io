@@ -73,9 +73,10 @@ img {
 }
 
 .brand {
-  font-family: "Cormorant Garamond", "Noto Sans KR", serif;
+  font-family: "Newsreader", "Noto Sans KR", serif;
   font-size: 1.65rem;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .languageToggle {
@@ -140,16 +141,35 @@ img {
 
 .heroTitle {
   margin: 0;
-  font-family: "Cormorant Garamond", "Noto Sans KR", serif;
+  font-family: "Newsreader", "Noto Sans KR", serif;
   font-size: clamp(3.8rem, 8vw, 6.6rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
   line-height: 0.94;
 }
 
 .heroHeadline {
   margin: 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.12em;
   font-size: clamp(1.4rem, 2.6vw, 2rem);
   font-weight: 700;
-  max-width: 16ch;
+  line-height: 1.18;
+  max-width: 18ch;
+}
+
+.heroHeadlineLine {
+  display: block;
+}
+
+.heroHeadline.isMultiline {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.heroHeadline.isMultiline .heroHeadlineLine {
+  white-space: nowrap;
 }
 
 .heroIntro,
@@ -481,13 +501,25 @@ img {
 }
 
 .metaRow {
+  display: grid;
+  gap: 0.35rem;
   margin-top: 1rem;
 }
 
 .metaHeading {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
   font-size: 0.85rem;
   font-weight: 800;
   color: var(--ink-strong);
+}
+
+.projectDetailList {
+  display: grid;
+  gap: 0.2rem;
 }
 
 .stackedCards {
@@ -563,8 +595,10 @@ img {
 
 .introHeading {
   margin: 0.65rem 0 0;
-  font-family: "Cormorant Garamond", "Noto Sans KR", serif;
+  font-family: "Newsreader", "Noto Sans KR", serif;
   font-size: clamp(3rem, 7vw, 5.4rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
   line-height: 0.95;
 }
 
@@ -665,6 +699,10 @@ img {
 
   .heroTitle {
     font-size: clamp(3rem, 16vw, 4.4rem);
+  }
+
+  .heroHeadline {
+    font-size: clamp(1.3rem, 6vw, 1.7rem);
   }
 
   .panelCard,

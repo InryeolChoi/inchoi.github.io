@@ -31,6 +31,8 @@ export type PortfolioItem = {
 export type ProjectItem = {
   title: string;
   role: LocalizedText;
+  problem: LocalizedText;
+  approach: LocalizedText;
   summary: LocalizedText;
   highlights: LocalizedList;
   githubUrl: string;

@@ -10,6 +10,7 @@ type HeroProps = {
 
 export function Hero({ locale }: HeroProps) {
   const { t } = useTranslation();
+  const headlineLines = profile.headline[locale].split("\n");
 
   return (
     <section className="heroSection" id="about">
@@ -37,33 +38,37 @@ export function Hero({ locale }: HeroProps) {
         </motion.div>
 
         <div className="heroCopy">
-        <motion.p
-          className="eyebrow"
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.45 }}
-        >
-          {t("heroEyebrow")}
-        </motion.p>
-        <motion.p
-          className="heroHeadline"
-          initial={{ y: 28, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.55, delay: 0.1 }}
-        >
-          {profile.headline[locale]}
-        </motion.p>
-        <motion.p
-          className="heroIntro"
-          initial={{ y: 28, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.55, delay: 0.15 }}
-        >
-          {profile.intro[locale]}
-        </motion.p>
+          <motion.p
+            className="eyebrow"
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.45 }}
+          >
+            {t("heroEyebrow")}
+          </motion.p>
+          <motion.p
+            className={headlineLines.length > 1 ? "heroHeadline isMultiline" : "heroHeadline"}
+            initial={{ y: 28, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.55, delay: 0.1 }}
+          >
+            {headlineLines.map((line) => (
+              <span key={line} className="heroHeadlineLine">
+                {line}
+              </span>
+            ))}
+          </motion.p>
+          <motion.p
+            className="heroIntro"
+            initial={{ y: 28, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.55, delay: 0.15 }}
+          >
+            {profile.intro[locale]}
+          </motion.p>
         </div>
       </div>
 

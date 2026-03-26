@@ -37,6 +37,16 @@ export function Projects({ locale }: ProjectsProps) {
               </a>
             </div>
             <p>{item.summary[locale]}</p>
+            <div className="projectDetailList">
+              <div className="metaRow">
+                <span className="metaHeading">{t("problem")}</span>
+                <p>{item.problem[locale]}</p>
+              </div>
+              <div className="metaRow">
+                <span className="metaHeading">{t("approach")}</span>
+                <p>{item.approach[locale]}</p>
+              </div>
+            </div>
             <ul className="highlightList">
               {item.highlights[locale].map((highlight) => (
                 <li key={highlight}>{highlight}</li>

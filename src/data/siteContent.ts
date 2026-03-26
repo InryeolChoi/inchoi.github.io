@@ -12,7 +12,7 @@ export const profile = {
   name: "Inryeol Choi",
   githubUrl: "https://github.com/InryeolChoi",
   headline: {
-    ko: "지식을 구조화하고, 다시 학습 경험으로 연결하는 개발자",
+    ko: "늘 우직하게,\n늘 갈망하는 개발자",
     en: "A developer who structures knowledge and turns it into learning experiences",
   },
   intro: {
@@ -208,20 +208,28 @@ export const projectItems: ProjectItem[] = [
       ko: "제품 구조 설계, 프론트엔드/백엔드 연결, 학습 흐름 구현",
       en: "Product structure design, frontend/backend integration, and learning flow implementation",
     },
+    problem: {
+      ko: "markdown 노트를 정리해도 실제 시험처럼 문제를 풀고 복습하는 경험까지 이어지지 않았고, 노트 원본과 학습 앱의 책임도 한 저장소에 섞이기 쉬웠습니다.",
+      en: "Markdown notes alone did not provide a full exam-and-review experience, and note ownership could easily get mixed with the learning app.",
+    },
+    approach: {
+      ko: "`active-recall-notes`에서 넘어온 스냅샷을 SQLite에 적재하고, FastAPI와 Next.js를 연결해 문제 생성, 시험 응시, 채점, 오답 복습 흐름을 하나의 학습 앱으로 구성했습니다.",
+      en: "I loaded snapshots from `active-recall-notes` into SQLite and connected FastAPI with Next.js to build quiz generation, exam taking, grading, and wrong-answer review into one learning app.",
+    },
     summary: {
-      ko: "노트 저장소와 학습 앱을 분리하고, 동기화된 콘텐츠로 문제 생성과 시험 경험을 제공하는 학습 시스템입니다.",
-      en: "A learning system that separates note ownership from the app and delivers quiz and exam experiences using synced content.",
+      ko: "외부 노트 저장소를 데이터 공급원으로 두고, 학습용 실행 계층을 별도 앱으로 분리한 반복 회상 학습 시스템입니다.",
+      en: "An active-recall learning system that separates the execution layer from the external note repository used as its content source.",
     },
     highlights: {
       ko: [
-        "외부 노트 저장소와 앱 저장소의 책임 분리",
-        "시험 생성, 제출, 채점, 오답 복습 흐름 구성",
-        "FastAPI와 Next.js를 연결한 전체 학습 경험 설계",
+        "노트 저장소와 학습 앱 저장소의 책임을 분리한 구조 설계",
+        "시험 생성, 제출, 채점, 오답노트까지 이어지는 사용자 흐름 구현",
+        "FastAPI API와 Next.js 화면을 연결한 end-to-end 학습 경험 구성",
       ],
       en: [
-        "Separated responsibilities between the note repo and the app repo",
-        "Built exam creation, submission, grading, and review flows",
-        "Designed an end-to-end study experience across FastAPI and Next.js",
+        "Separated responsibilities between the note repository and the learning app repository",
+        "Built a user flow that connects exam generation, submission, grading, and wrong-note review",
+        "Delivered an end-to-end study experience across FastAPI APIs and a Next.js frontend",
       ],
     },
     githubUrl: "https://github.com/InryeolChoi/active-recall-quiz",
@@ -232,20 +240,28 @@ export const projectItems: ProjectItem[] = [
       ko: "콘텐츠 구조 설계 및 학습 자료 운영",
       en: "Content structure design and study material operations",
     },
+    problem: {
+      ko: "정처기 실기처럼 서술형 답안을 요구하는 학습에서는 단순 요약 노트만으로는 반복 회상과 문제화에 바로 연결되기 어려웠습니다.",
+      en: "For descriptive-answer study like the practical engineer exam, simple summary notes were not enough to support repeated recall and question generation.",
+    },
+    approach: {
+      ko: "개념을 `unit_*/*.md` 구조로 정리하고, 학습 앱으로 전달하기 쉬운 작성 원칙과 스냅샷 동기화 흐름을 기준으로 노트 저장소를 설계했습니다.",
+      en: "I organized concepts in a `unit_*/*.md` structure and designed the repository around authoring rules and snapshot sync flows that feed the learning app cleanly.",
+    },
     summary: {
-      ko: "markdown으로 정리한 이론을 반복 회상 학습에 적합한 데이터 자산으로 바꾸는 데 초점을 둔 프로젝트입니다.",
-      en: "A project focused on turning markdown study notes into reusable assets for active recall learning.",
+      ko: "이론 정리를 끝내는 저장소가 아니라, 반복 회상 학습에 재사용할 수 있는 콘텐츠 자산을 만드는 노트 프로젝트입니다.",
+      en: "A note project focused on turning theory writeups into reusable content assets for active recall learning.",
     },
     highlights: {
       ko: [
-        "unit 기반 markdown 구조 정리",
-        "학습 앱으로 이어지는 콘텐츠 공급 구조 마련",
-        "추후 자동화와 동기화에 적합한 작성 원칙 수립",
+        "unit 단위 markdown 구조와 파일 규칙 정리",
+        "학습 앱으로 이어지는 콘텐츠 공급 저장소 역할 분리",
+        "자동 동기화와 문제 생성에 맞는 작성 원칙 수립",
       ],
       en: [
-        "Organized a unit-based markdown content structure",
-        "Built a content supply path for the learning application",
-        "Defined authoring rules that fit future automation and sync",
+        "Defined a unit-based markdown structure and file conventions",
+        "Separated the repository as the dedicated content source for the learning app",
+        "Established authoring rules that fit automated sync and question generation",
       ],
     },
     githubUrl: "https://github.com/InryeolChoi/active-recall-notes",
@@ -256,20 +272,28 @@ export const projectItems: ProjectItem[] = [
       ko: "DB 학습 및 실습 환경 구성",
       en: "Database learning and practice environment setup",
     },
+    problem: {
+      ko: "데이터베이스 개념은 책으로만 보면 추상적으로 남기 쉬워서, 직접 만들고 지우며 익힐 수 있는 반복 가능한 실습 환경이 필요했습니다.",
+      en: "Database concepts can stay abstract when learned only from books, so I needed a repeatable environment for hands-on practice.",
+    },
+    approach: {
+      ko: "Docker 기반 PostgreSQL 실행 환경을 만들고, 볼륨 유지 방식과 기본 SQL 예제를 함께 정리해 컨테이너 실행부터 CRUD 실습까지 한 흐름으로 다룰 수 있게 했습니다.",
+      en: "I built a Docker-based PostgreSQL environment and documented volume persistence with basic SQL examples so the full flow from container startup to CRUD practice could be repeated easily.",
+    },
     summary: {
-      ko: "PostgreSQL와 Docker를 이용해 SQL과 데이터베이스 기초를 손으로 익히기 위한 연습용 저장소입니다.",
-      en: "A practice repository for learning SQL and database fundamentals with PostgreSQL and Docker.",
+      ko: "PostgreSQL와 Docker를 이용해 SQL과 데이터베이스 기초를 직접 실행하며 익히기 위한 실습 저장소입니다.",
+      en: "A hands-on practice repository for learning SQL and database fundamentals with PostgreSQL and Docker.",
     },
     highlights: {
       ko: [
         "컨테이너 기반 PostgreSQL 실행 환경 구성",
-        "볼륨 기반 데이터 유지 구조 이해",
-        "기본 CRUD와 스키마 실습 흐름 정리",
+        "볼륨 기반 데이터 유지 방식과 환경 재생성 흐름 정리",
+        "기본 CRUD와 스키마 실습을 바로 따라할 수 있는 예제 구성",
       ],
       en: [
         "Set up a container-based PostgreSQL environment",
-        "Learned persistent volume-based data flow",
-        "Organized a hands-on path for CRUD and schema practice",
+        "Documented persistent volume handling and environment reset flow",
+        "Prepared example steps for immediate CRUD and schema practice",
       ],
     },
     githubUrl: "https://github.com/InryeolChoi/database-playground",
