@@ -58,3 +58,9 @@ export type EducationItem = {
   summary: LocalizedText;
   highlights: LocalizedList;
 };
+
+export type CertificationItem = {
+  title: string;
+  grade?: string;
+  acquiredAt: string;
+};

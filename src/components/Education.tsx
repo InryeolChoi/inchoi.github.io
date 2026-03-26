@@ -25,7 +25,6 @@ export function Education({ locale }: EducationProps) {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: index * 0.08 }}
           >
-            <div className="timelineMarker" />
             <div className="timelineBody">
               <p className="timelinePeriod">{item.period}</p>
               <h3>{item.institution}</h3>

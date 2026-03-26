@@ -453,35 +453,12 @@ img {
 }
 
 .timelineList {
-  position: relative;
   display: grid;
   gap: 1rem;
-}
-
-.timelineList::before {
-  content: "";
-  position: absolute;
-  top: 0.2rem;
-  bottom: 0.2rem;
-  left: 11px;
-  width: 2px;
-  background: #cbd5e1;
 }
 
 .timelineItem {
-  position: relative;
-  display: grid;
-  grid-template-columns: 24px minmax(0, 1fr);
-  gap: 1rem;
-}
-
-.timelineMarker {
-  width: 24px;
-  height: 24px;
-  margin-top: 0.18rem;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.12);
+  display: block;
 }
 
 .timelineBody {
@@ -541,6 +518,39 @@ img {
 .stackedCards {
   display: grid;
   gap: 1rem;
+}
+
+.certificationGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.certificationCard {
+  display: grid;
+  gap: 1rem;
+}
+
+.certificationHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.certificationHeader h3 {
+  margin: 0;
+}
+
+.certificationMetaRow {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.certificationMetaRow p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-weight: 600;
 }
 
 .personalInfoBlock {
@@ -675,7 +685,8 @@ img {
 
 @media (max-width: 960px) {
   .heroBody,
-  .cardGrid {
+  .cardGrid,
+  .certificationGrid {
     grid-template-columns: 1fr;
   }
 

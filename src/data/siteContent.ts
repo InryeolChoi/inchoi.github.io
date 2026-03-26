@@ -1,4 +1,5 @@
 import type {
+  CertificationItem,
   EducationItem,
   ExperienceItem,
   LinkItem,
@@ -57,7 +58,7 @@ export const profile = {
 export const skillCategories: SkillCategory[] = [
   {
     title: {
-      ko: "Core Stack",
+      ko: "핵심 스택",
       en: "Core Stack",
     },
     items: [
@@ -105,7 +106,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: {
-      ko: "Familiar With",
+      ko: "익숙한 기술",
       en: "Familiar With",
     },
     items: [
@@ -145,7 +146,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: {
-      ko: "Explored",
+      ko: "탐색해 본 기술",
       en: "Explored",
     },
     items: [
@@ -224,8 +225,8 @@ export const portfolioItems: PortfolioItem[] = [
   {
     title: "Profile Site",
     description: {
-      ko: "개인 소개, 프로젝트, 타임라인을 정리하는 GitHub Pages 기반 포트폴리오 사이트입니다.",
-      en: "A GitHub Pages portfolio site that organizes profile, projects, and career content.",
+      ko: "개인 소개, 프로젝트, 경력과 교육 이력을 정리하는 GitHub Pages 기반 포트폴리오 사이트입니다.",
+      en: "A GitHub Pages portfolio site that organizes profile, projects, career, and education content.",
     },
     techStack: ["React", "TypeScript", "Vite", "Motion"],
     githubUrl: "https://github.com/InryeolChoi/inchoi.github.io",
@@ -474,12 +475,29 @@ export const educationItems: EducationItem[] = [
   },
 ];
 
+export const certificationItems: CertificationItem[] = [
+  {
+    title: "OPIC",
+    grade: "AL",
+    acquiredAt: "2024.09.20",
+  },
+  {
+    title: "SQLD",
+    acquiredAt: "2021.12.17",
+  },
+  {
+    title: "빅데이터분석기사",
+    acquiredAt: "2024.12.20",
+  },
+];
+
 export const sectionAnchors = [
   { id: "about", label: { ko: "소개", en: "About" } },
   { id: "skills", label: { ko: "기술 스택", en: "Tech Stack" } },
   { id: "portfolio", label: { ko: "포트폴리오", en: "Portfolio" } },
   { id: "projects", label: { ko: "프로젝트", en: "Projects" } },
   { id: "experience", label: { ko: "경력", en: "Experience" } },
+  { id: "certifications", label: { ko: "자격증", en: "Certifications" } },
   { id: "education", label: { ko: "교육", en: "Education" } },
 ];
 

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import { Certifications } from "./components/Certifications";
 import { Education } from "./components/Education";
 import { Experience } from "./components/Experience";
 import { Hero } from "./components/Hero";
@@ -91,6 +92,7 @@ function App() {
           <Skills locale={locale} />
           <Projects locale={locale} />
           <Experience locale={locale} />
+          <Certifications />
           <Education locale={locale} />
         </main>
         <footer className="pageFooter">
