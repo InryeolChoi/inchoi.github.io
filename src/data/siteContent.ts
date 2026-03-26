@@ -2,11 +2,31 @@ import type {
   EducationItem,
   ExperienceItem,
   LinkItem,
+  LocalizedInlineText,
   PortfolioItem,
   SkillItem,
   SkillCategory,
 } from "../types";
 import type { Locale, ProjectItem } from "../types";
+
+const text = (value: string) => ({ text: value });
+const link = (value: string, href: string) => ({ text: value, href });
+const plainDescription = (ko: string, en: string): LocalizedInlineText => ({
+  ko: [text(ko)],
+  en: [text(en)],
+});
+
+const skillLinks = {
+  algorithmPy: "https://github.com/InryeolChoi/algorithm_py",
+  cpp101: "https://github.com/InryeolChoi/cpp_101",
+  ebayAnalysis: "https://github.com/InryeolChoi/ebay_analysis",
+  ftPrintf: "https://github.com/InryeolChoi/ft_printf",
+  getNextLine: "https://github.com/InryeolChoi/_get_NextLine",
+  javaModern: "https://github.com/InryeolChoi/Java_Modern",
+  philosopher: "https://github.com/InryeolChoi/_philosopher",
+  pipex: "https://github.com/InryeolChoi/_pipex",
+  superApp: "https://github.com/InryeolChoi/superApp",
+} as const;
 
 export const profile = {
   name: "Inryeol Choi",
@@ -58,33 +78,45 @@ export const skillCategories: SkillCategory[] = [
         name: "Java",
         iconKey: "java",
         description: {
-          ko: "학교 수업에서 Java를 처음 공부했고, <모던 자바 인 액션>을 읽으며 객체지향, Stream, Lambda 같은 현대적인 Java 문법을 더 깊게 익혔습니다.",
-          en: "I first studied Java in school, then deepened my understanding of object-oriented design and modern Java features such as streams and lambdas through Modern Java in Action.",
+          ko: [
+            text("학교 수업에서 Java로 객체지향의 기본기를 잡은 뒤 "),
+            link("Java_Modern", skillLinks.javaModern),
+            text(
+              " 저장소에서 <모던 자바 인 액션> 흐름을 따라가며 람다, 스트림, Optional, Fork/Join, 비동기 API 같은 주제를 예제 중심으로 정리했습니다. 문법만 암기하기보다 컬렉션 처리 방식이 어떻게 달라지는지, 병렬 처리와 비동기 흐름이 코드 구조를 어떻게 바꾸는지까지 비교하며 모던 자바 스타일을 익혔습니다.",
+            ),
+          ],
+          en: [
+            text("After learning Java fundamentals in class, I used "),
+            link("Java_Modern", skillLinks.javaModern),
+            text(
+              " to study modern Java in depth through examples covering lambdas, streams, Optional, Fork/Join, and asynchronous APIs. I focused on how modern Java changes collection handling and program structure rather than only memorizing syntax.",
+            ),
+          ],
         },
       },
       {
-        name: "React",
-        iconKey: "react",
-        description: {
-          ko: "포트폴리오 사이트와 학습용 UI를 만들면서 컴포넌트 설계, 상태 흐름, 화면 구조 분리에 익숙해졌습니다.",
-          en: "I used React to build this portfolio and study-focused interfaces, becoming comfortable with component design, state flow, and screen composition.",
-        },
+        name: "Spring",
+        iconKey: "spring",
+        description: plainDescription(
+          "백엔드 애플리케이션을 계층적으로 나누는 방식, 의존성 주입, 설정 분리, 웹 애플리케이션의 요청 처리 흐름을 이해하기 위해 Spring 학습을 이어가고 있습니다.",
+          "I am studying Spring to understand layered backend structure, dependency injection, configuration, and request handling in web applications.",
+        ),
       },
       {
-        name: "TypeScript",
-        iconKey: "typescript",
-        description: {
-          ko: "React 프로젝트에서 타입 안정성을 높이기 위해 사용했고, 데이터 구조를 명확하게 정의하며 유지보수성을 높였습니다.",
-          en: "I use TypeScript in React projects to improve type safety and keep data structures explicit and maintainable.",
-        },
+        name: "Docker",
+        iconKey: "docker",
+        description: plainDescription(
+          "데이터베이스 실습과 웹 프로젝트 환경을 컨테이너로 분리해 보면서 로컬 환경을 반복 가능하게 맞추고, 서비스별 실행 구성을 분리하는 흐름을 익혔습니다.",
+          "I used Docker to separate databases and app environments, making local setups reproducible and easier to manage by service.",
+        ),
       },
       {
-        name: "FastAPI",
-        iconKey: "fastapi",
-        description: {
-          ko: "Active Recall Quiz 백엔드에서 API 구조를 나누고 시험 생성, 제출, 채점 흐름을 연결하는 데 활용했습니다.",
-          en: "I used FastAPI in the Active Recall Quiz backend to structure APIs and support exam creation, submission, and grading flows.",
-        },
+        name: "Linux",
+        iconKey: "linux",
+        description: plainDescription(
+          "셸 환경에서 파일과 프로세스를 다루고, 시스템 콜과 프로세스 실행 흐름을 이해하는 과제를 수행하면서 리눅스 기반 개발 환경에 자연스럽게 익숙해졌습니다.",
+          "I became comfortable with Linux-based development by working with shells, processes, and system-call-oriented assignments.",
+        ),
       },
     ] satisfies SkillItem[],
   },
@@ -98,41 +130,101 @@ export const skillCategories: SkillCategory[] = [
         name: "C",
         iconKey: "c",
         description: {
-          ko: "기초 프로그래밍과 알고리즘 학습 과정에서 메모리와 자료구조를 더 낮은 수준에서 이해하기 위해 다뤘습니다.",
-          en: "I explored C while studying programming fundamentals and algorithms to better understand memory and low-level data structures.",
+          ko: [
+            text("단순히 문법만 익힌 것이 아니라 "),
+            link("ft_printf", skillLinks.ftPrintf),
+            text(" 에서 가변 인자와 포맷 문자열 처리를 직접 구현하며 메모리와 문자열 조작의 기본기를 다졌고, "),
+            link("get_next_line", skillLinks.getNextLine),
+            text(" 에서는 `read()` 기반 버퍼 관리와 파일 디스크립터별 상태 처리를 통해 입력 흐름을 이해했습니다. 이어 "),
+            link("pipex", skillLinks.pipex),
+            text(" 에서 `pipe`, `fork`, `dup2`, `execve`를 연결해 프로세스 간 파이프라인을 구현하며 시스템 콜과 멀티 프로세싱을 익혔고, "),
+            link("philosopher", skillLinks.philosopher),
+            text(" 에서는 스레드와 뮤텍스를 다루며 동기화 문제를 직접 풀어보았습니다. 이런 과정을 통해 메모리 관리, 파일 디스크립터, 시스템 콜, 파이프, 멀티 프로세싱, 멀티 스레딩을 실제 구현 맥락에서 이해하게 되었습니다."),
+          ],
+          en: [
+            text("I learned C through implementation-heavy projects rather than simple syntax practice. In "),
+            link("ft_printf", skillLinks.ftPrintf),
+            text(" I handled variadic arguments and format parsing, and in "),
+            link("get_next_line", skillLinks.getNextLine),
+            text(" I managed buffered input and per-file-descriptor state around `read()`. Then "),
+            link("pipex", skillLinks.pipex),
+            text(" helped me connect `pipe`, `fork`, `dup2`, and `execve` to build a shell-like pipeline, while "),
+            link("philosopher", skillLinks.philosopher),
+            text(" made me work through thread synchronization with mutexes. Through these projects, I built a practical understanding of memory management, file descriptors, system calls, pipes, multiprocessing, and multithreading."),
+          ],
         },
       },
       {
         name: "C++",
         iconKey: "cplusplus",
         description: {
-          ko: "알고리즘 문제 풀이와 기본 문법 학습을 통해 자료구조와 성능 감각을 익히는 데 활용했습니다.",
-          en: "I used C++ in algorithm practice to get more comfortable with data structures and performance-oriented thinking.",
+          ko: [
+            link("cpp_101", skillLinks.cpp101),
+            text(
+              " 저장소를 중심으로 여러 모듈을 따라가며 클래스 설계, 생성자와 소멸자, 레퍼런스, OCCF, 상속, 다형성, 추상 클래스, 템플릿, STL, 타입 변환 같은 주제를 단계적으로 공부했습니다. 특히 C++의 복사 제어와 자원 관리 방식이 Java나 Python 같은 다른 OOP 언어와 어떻게 다른지, 또 객체 추상화나 인터페이스 설계라는 공통점은 무엇인지 비교해보며 언어별 객체지향 감각을 넓혔습니다.",
+            ),
+          ],
+          en: [
+            text("I studied C++ through the step-by-step exercises in "),
+            link("cpp_101", skillLinks.cpp101),
+            text(
+              ", covering classes, constructors and destructors, references, the Orthodox Canonical Class Form, inheritance, polymorphism, abstract classes, templates, STL, and type conversion. I paid particular attention to how C++ differs from Java and Python in copy control, ownership, and object design while also comparing their shared OOP ideas.",
+            ),
+          ],
         },
       },
       {
         name: "Python",
         iconKey: "python",
         description: {
-          ko: "학습 앱 백엔드와 자동화 스크립트에서 사용했고, 로직을 빠르게 구현하고 실험하는 데 익숙합니다.",
-          en: "I use Python in backend work and automation scripts, and I am comfortable using it to prototype and implement logic quickly.",
+          ko: [
+            link("algorithm_py", skillLinks.algorithmPy),
+            text(" 에서 알고리즘 문제를 꾸준히 풀며 빠르게 로직을 구현하고 자료구조를 다루는 감각을 길렀고, "),
+            link("superApp", skillLinks.superApp),
+            text(
+              " 에서는 Django 기반 백엔드를 직접 구성하며 `manage.py`, 앱 분리, 모델, URL, 뷰, 직렬화, 채팅과 게시판 기능 같은 웹 서비스 기본 구조를 익혔습니다. 또한 "),
+            link("ebay_analysis", skillLinks.ebayAnalysis),
+            text(
+              " 에서는 노트북 환경과 데이터 파일을 다루며 분석 과정을 정리해보았습니다. 이렇게 Python을 알고리즘 풀이, 백엔드 기초 학습, 데이터 분석까지 다양한 용도로 사용해보면서 빠르게 실험하고 구조를 검증하는 언어로 활용해왔습니다.",
+            ),
+          ],
+          en: [
+            text("I have used Python across several different contexts. In "),
+            link("algorithm_py", skillLinks.algorithmPy),
+            text(" I practiced algorithms regularly to build fast implementation habits, while "),
+            link("superApp", skillLinks.superApp),
+            text(
+              " let me learn backend fundamentals with Django through app structure, models, URLs, views, serializers, and service features such as boards and chat. I also used "),
+            link("ebay_analysis", skillLinks.ebayAnalysis),
+            text(
+              " for notebook-based data analysis. That combination made Python a practical language for me across problem solving, backend learning, and analysis work.",
+            ),
+          ],
         },
       },
       {
-        name: "Docker",
-        iconKey: "docker",
-        description: {
-          ko: "PostgreSQL 실습 환경을 컨테이너로 구성하면서 로컬 개발 환경을 반복 가능하게 만드는 흐름을 익혔습니다.",
-          en: "I used Docker to make the PostgreSQL practice environment reproducible and easier to manage locally.",
-        },
+        name: "Django",
+        iconKey: "django",
+        description: plainDescription(
+          "Django로 프로젝트를 구성하면서 앱 단위 구조화, 모델과 마이그레이션, URL 라우팅, 뷰와 직렬화, 기본 인증 흐름처럼 백엔드 웹 프레임워크의 핵심 구성을 익혔습니다.",
+          "I studied Django through real project structure, learning app organization, models and migrations, URL routing, views, serializers, and core backend workflow.",
+        ),
+      },
+      {
+        name: "FastAPI",
+        iconKey: "fastapi",
+        description: plainDescription(
+          "Active Recall Quiz 백엔드에서 API 구조를 나누고, 시험 생성, 제출, 채점, 결과 조회 흐름을 연결하면서 비교적 가볍고 명확한 웹 API 설계 경험을 쌓았습니다.",
+          "I used FastAPI in the Active Recall Quiz backend to structure APIs and connect exam creation, submission, grading, and result flows.",
+        ),
       },
       {
         name: "GitHub Actions",
         iconKey: "githubactions",
-        description: {
-          ko: "노트 동기화와 GitHub Pages 배포처럼 반복되는 작업을 자동화하는 데 활용하고 있습니다.",
-          en: "I use GitHub Actions to automate repetitive tasks such as note sync pipelines and GitHub Pages deployment.",
-        },
+        description: plainDescription(
+          "노트 동기화, 정적 사이트 배포, 반복 작업 체크처럼 사람이 계속 수동으로 하지 않아도 되는 흐름을 자동화하는 데 활용하고 있습니다.",
+          "I use GitHub Actions to automate repetitive workflows such as note sync and static site deployment.",
+        ),
       },
     ] satisfies SkillItem[],
   },
@@ -145,18 +237,34 @@ export const skillCategories: SkillCategory[] = [
       {
         name: "R",
         iconKey: "r",
-        description: {
-          ko: "기초 통계와 데이터 처리 흐름을 이해하기 위해 문법과 패키지 사용 방식을 가볍게 학습했습니다.",
-          en: "I briefly studied R to understand basic statistics workflows and package-based data handling.",
-        },
+        description: plainDescription(
+          "기초 통계와 데이터 처리 흐름을 이해하기 위해 문법과 패키지 사용 방식을 가볍게 학습했습니다.",
+          "I briefly studied R to understand basic statistics workflows and package-based data handling.",
+        ),
       },
       {
-        name: "SwiftUI",
+        name: "TypeScript",
+        iconKey: "typescript",
+        description: plainDescription(
+          "React 프로젝트에서 타입 안정성을 높이기 위해 사용했고, 데이터 구조를 명확하게 정의하며 유지보수성을 높였습니다.",
+          "I used TypeScript in React projects to improve type safety and keep data structures explicit and maintainable.",
+        ),
+      },
+      {
+        name: "React",
+        iconKey: "react",
+        description: plainDescription(
+          "포트폴리오 사이트와 학습용 UI를 만들면서 컴포넌트 설계, 상태 흐름, 화면 구조 분리에 익숙해졌습니다.",
+          "I used React to build this portfolio and study-focused interfaces, becoming comfortable with component design, state flow, and screen composition.",
+        ),
+      },
+      {
+        name: "Swift",
         iconKey: "swift",
-        description: {
-          ko: "Apple 튜토리얼을 따라가며 SwiftUI 기반 앱 구조와 선언형 UI 작성 방식을 경험해봤습니다. 특히 ",
-          en: "I explored declarative UI and app structure in SwiftUI by following Apple tutorials and small practice projects.",
-        },
+        description: plainDescription(
+          "Apple 튜토리얼을 따라가며 Swift 문법과 iOS 앱 구조를 가볍게 탐색해봤습니다.",
+          "I briefly explored Swift syntax and iOS app structure through Apple tutorials and small practice exercises.",
+        ),
       },
     ] satisfies SkillItem[],
   },

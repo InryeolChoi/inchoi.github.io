@@ -3,12 +3,15 @@ import { FaJava, FaReact } from "react-icons/fa6";
 import {
   SiC,
   SiCplusplus,
+  SiDjango,
   SiDocker,
   SiFastapi,
   SiGithubactions,
+  SiLinux,
   SiPostgresql,
   SiPython,
   SiR,
+  SiSpring,
   SiSwift,
   SiTypescript,
 } from "react-icons/si";
@@ -31,9 +34,12 @@ const iconMap: Record<string, IconType> = {
   python: SiPython,
   postgresql: SiPostgresql,
   docker: SiDocker,
+  django: SiDjango,
   githubactions: SiGithubactions,
   c: SiC,
   cplusplus: SiCplusplus,
+  linux: SiLinux,
+  spring: SiSpring,
   swift: SiSwift,
   r: SiR,
 };
@@ -67,7 +73,23 @@ export function Skills({ locale }: SkillsProps) {
                       <div className="skillIconBox">{Icon ? <Icon /> : null}</div>
                       <div className="skillText">
                         <h4>{item.name}</h4>
-                        <p>{item.description[locale]}</p>
+                        <p>
+                          {item.description[locale].map((part, partIndex) =>
+                            part.href ? (
+                              <a
+                                key={`${item.name}-${locale}-${partIndex}`}
+                                className="skillInlineLink"
+                                href={part.href}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                {part.text}
+                              </a>
+                            ) : (
+                              <span key={`${item.name}-${locale}-${partIndex}`}>{part.text}</span>
+                            ),
+                          )}
+                        </p>
                       </div>
                     </div>
                   </article>

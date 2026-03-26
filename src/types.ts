@@ -6,13 +6,18 @@ export type LinkItem = {
 };
 
 export type LocalizedText = Record<Locale, string>;
+export type InlineTextPart = {
+  text: string;
+  href?: string;
+};
+export type LocalizedInlineText = Record<Locale, InlineTextPart[]>;
 
 export type LocalizedList = Record<Locale, string[]>;
 
 export type SkillItem = {
   name: string;
   iconKey: string;
-  description: LocalizedText;
+  description: LocalizedInlineText;
 };
 
 export type SkillCategory = {

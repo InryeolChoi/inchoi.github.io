@@ -403,6 +403,16 @@ img {
   line-height: 1.7;
 }
 
+.skillInlineLink {
+  color: var(--accent-deep);
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
+.skillInlineLink:hover {
+  color: var(--accent);
+}
+
 .panelCard,
 .wideCard {
   padding: 1.25rem;
