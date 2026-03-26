@@ -95,7 +95,7 @@ function App() {
           <Projects locale={locale} />
           <LearningHistory locale={locale} />
           <Education locale={locale} />
-          <Certifications />
+          <Certifications locale={locale} />
           <Experience locale={locale} />
           <Other locale={locale} />
         </main>

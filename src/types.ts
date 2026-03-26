@@ -53,7 +53,7 @@ export type ExperienceItem = {
 
 export type EducationItem = {
   period: string;
-  institution: string;
+  institution: LocalizedText;
   program: LocalizedText;
   summary: LocalizedText;
   highlights: LocalizedList;
@@ -76,7 +76,8 @@ export type LearningHistoryItem = {
 };
 
 export type CertificationItem = {
-  title: string;
+  title: LocalizedText;
   grade?: string;
   acquiredAt: string;
+  description?: LocalizedText;
 };

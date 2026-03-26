@@ -398,7 +398,10 @@ export const experienceItems: ExperienceItem[] = [
 export const educationItems: EducationItem[] = [
   {
     period: "2015.02 - 2018.02",
-    institution: "대일외국어고등학교",
+    institution: {
+      ko: "대일외국어고등학교",
+      en: "Daeil Foreign Language High School",
+    },
     program: {
       ko: "스페인어과 졸업",
       en: "Graduated from the Spanish Language Department",
@@ -424,7 +427,10 @@ export const educationItems: EducationItem[] = [
   },
   {
     period: "2018.03 - 2025.02",
-    institution: "동국대학교",
+    institution: {
+      ko: "동국대학교",
+      en: "Dongguk University",
+    },
     program: {
       ko: "주전공: 경영정보학과 / 복수전공: 통계학과",
       en: "Major in Management Information Systems / Double Major in Statistics",
@@ -482,17 +488,34 @@ export const learningHistoryItems: LearningHistoryItem[] = [
 
 export const certificationItems: CertificationItem[] = [
   {
-    title: "OPIC",
+    title: {
+      ko: "OPIC",
+      en: "OPIC",
+    },
     grade: "AL",
     acquiredAt: "2024.09.20",
   },
   {
-    title: "SQLD",
+    title: {
+      ko: "SQLD",
+      en: "SQLD",
+    },
     acquiredAt: "2021.12.17",
+    description: {
+      ko: "데이터 모델링과 SQL 기본 및 활용 능력을 검정하는 자격증입니다.",
+      en: "A certification that validates practical understanding of data modeling and core SQL usage.",
+    },
   },
   {
-    title: "빅데이터분석기사",
+    title: {
+      ko: "빅데이터분석기사",
+      en: "Big Data Analysis Engineer",
+    },
     acquiredAt: "2024.12.20",
+    description: {
+      ko: "빅데이터 이해, 탐색, 모델링, 결과 해석 등 데이터 분석 전반을 다루는 국가기술자격입니다.",
+      en: "A national technical certification covering big-data understanding, analysis workflow, modeling, and interpretation.",
+    },
   },
 ];
 
@@ -501,11 +524,11 @@ export const otherItems: OtherItem[] = [
     period: "2020.09 - 2022.03",
     organization: {
       ko: "대한민국 육군 카투사",
-      en: "Republic of Korea Army KATUSA",
+      en: "KATUSA",
     },
     role: {
-      ko: "미8군 통역·행정 지원 / Senior KATUSA",
-      en: "Eighth Army interpretation and administrative support / Senior KATUSA",
+      ko: "미8군 통역·행정 지원",
+      en: "Eighth Army interpretation and administrative support",
     },
     summary: {
       ko: "미8군 환경에서 통역과 행정 지원 업무를 수행하며 카투사 대상 한국군 행정 절차를 관리했습니다. 코로나 시기 행정 절차 운영과 신규 카투사 보직 관련 논의에 참여했고, 이후 Senior KATUSA 역할을 맡아 조율과 책임 있는 운영 경험을 쌓았습니다.",
@@ -516,13 +539,13 @@ export const otherItems: OtherItem[] = [
         "미8군 통역 업무를 수행하며 한미 간 커뮤니케이션 지원",
         "카투사 대상 한국군 행정 업무와 코로나 시기 행정 절차 관리",
         "신규 카투사 보직 관련 논의와 조율 수행",
-        "Senior KATUSA 역할을 맡아 책임 분담, 안내, 운영 리더십 경험 축적",
+        "임시 Senior KATUSA 역할을 맡아 책임 분담, 안내, 운영 리더십 경험 축적",
       ],
       en: [
         "Supported communication between Korean and U.S. personnel through interpretation work in the Eighth Army environment",
         "Managed Korean military administrative procedures for KATUSA personnel, including processes during the COVID period",
         "Participated in discussion and coordination around new KATUSA assignments",
-        "Served as a Senior KATUSA, building leadership through responsibility sharing, guidance, and operational support",
+        "Served as an interim Senior KATUSA, building leadership through responsibility sharing, guidance, and operational support",
       ],
     },
   },
