@@ -132,9 +132,9 @@ img {
 .sectionKicker,
 .timelinePeriod,
 .metaLabel {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent-deep);
 }
