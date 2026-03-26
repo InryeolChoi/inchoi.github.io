@@ -8,6 +8,7 @@ import { Hero } from "./components/Hero";
 import { IntroOverlay } from "./components/IntroOverlay";
 import { LanguageToggle } from "./components/LanguageToggle";
 import { LearningHistory } from "./components/LearningHistory";
+import { Other } from "./components/Other";
 import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
 import { getLocale } from "./data/siteContent";
@@ -94,6 +95,7 @@ function App() {
           <Projects locale={locale} />
           <Experience locale={locale} />
           <Certifications />
+          <Other locale={locale} />
           <Education locale={locale} />
           <LearningHistory locale={locale} />
         </main>

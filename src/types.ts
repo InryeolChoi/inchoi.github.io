@@ -69,7 +69,7 @@ export type OtherItem = {
 
 export type LearningHistoryItem = {
   period: string;
-  institution: string;
+  institution: LocalizedText;
   program: LocalizedText;
   summary: LocalizedText;
   highlights: LocalizedList;

@@ -22,7 +22,7 @@ export function LearningHistory({ locale }: LearningHistoryProps) {
       <div className="timelineList">
         {learningHistoryItems.map((item, index) => (
           <motion.div
-            key={`${item.institution}-${item.period}`}
+            key={`${item.institution.en}-${item.period}`}
             className="timelineItem"
             initial={{ x: -24, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
@@ -31,7 +31,7 @@ export function LearningHistory({ locale }: LearningHistoryProps) {
           >
             <div className="timelineBody">
               <p className="timelinePeriod">{item.period}</p>
-              <h3>{item.institution}</h3>
+              <h3>{item.institution[locale]}</h3>
               <p className="timelineSubtitle">{item.program[locale]}</p>
               <p>{item.summary[locale]}</p>
               <ul className="highlightList">

@@ -480,7 +480,10 @@ export const educationItems: EducationItem[] = [
 export const learningHistoryItems: LearningHistoryItem[] = [
   {
     period: "2024.01 - Present",
-    institution: "42 Seoul",
+    institution: {
+      ko: "42서울",
+      en: "école 42 (Seoul Campus)",
+    },
     program: {
       ko: "프로젝트 기반 소프트웨어 개발 과정",
       en: "Project-based software engineering program",
@@ -504,17 +507,6 @@ export const learningHistoryItems: LearningHistoryItem[] = [
   },
 ];
 
-export const otherItems: OtherItem[] = learningHistoryItems.map((item) => ({
-  period: item.period,
-  organization: {
-    ko: item.institution,
-    en: item.institution,
-  },
-  role: item.program,
-  summary: item.summary,
-  highlights: item.highlights,
-}));
-
 export const certificationItems: CertificationItem[] = [
   {
     title: "OPIC",
@@ -531,6 +523,38 @@ export const certificationItems: CertificationItem[] = [
   },
 ];
 
+export const otherItems: OtherItem[] = [
+  {
+    period: "2020.09 - 2022.03",
+    organization: {
+      ko: "대한민국 육군 카투사",
+      en: "Republic of Korea Army KATUSA",
+    },
+    role: {
+      ko: "미8군 통역·행정 지원 / Senior KATUSA",
+      en: "Eighth Army interpretation and administrative support / Senior KATUSA",
+    },
+    summary: {
+      ko: "미8군 환경에서 통역과 행정 지원 업무를 수행하며 카투사 대상 한국군 행정 절차를 관리했습니다. 코로나 시기 행정 절차 운영과 신규 카투사 보직 관련 논의에 참여했고, 이후 Senior KATUSA 역할을 맡아 조율과 책임 있는 운영 경험을 쌓았습니다.",
+      en: "In the Eighth Army environment, I supported interpretation and administrative operations while managing Korean military procedures for KATUSA personnel. During the COVID period, I handled administrative processes and discussions around new KATUSA assignments, and later served as a Senior KATUSA with added coordination and leadership responsibility.",
+    },
+    highlights: {
+      ko: [
+        "미8군 통역 업무를 수행하며 한미 간 커뮤니케이션 지원",
+        "카투사 대상 한국군 행정 업무와 코로나 시기 행정 절차 관리",
+        "신규 카투사 보직 관련 논의와 조율 수행",
+        "Senior KATUSA 역할을 맡아 책임 분담, 안내, 운영 리더십 경험 축적",
+      ],
+      en: [
+        "Supported communication between Korean and U.S. personnel through interpretation work in the Eighth Army environment",
+        "Managed Korean military administrative procedures for KATUSA personnel, including processes during the COVID period",
+        "Participated in discussion and coordination around new KATUSA assignments",
+        "Served as a Senior KATUSA, building leadership through responsibility sharing, guidance, and operational support",
+      ],
+    },
+  },
+];
+
 export const sectionAnchors = [
   { id: "about", label: { ko: "소개", en: "About" } },
   { id: "skills", label: { ko: "기술 스택", en: "Tech Stack" } },
@@ -538,6 +562,7 @@ export const sectionAnchors = [
   { id: "projects", label: { ko: "프로젝트", en: "Projects" } },
   { id: "experience", label: { ko: "경력", en: "Experience" } },
   { id: "certifications", label: { ko: "자격증", en: "Certifications" } },
+  { id: "other", label: { ko: "기타", en: "Other" } },
   { id: "education", label: { ko: "교육", en: "Education" } },
   { id: "learning-history", label: { ko: "학습이력", en: "Learning History" } },
 ];
