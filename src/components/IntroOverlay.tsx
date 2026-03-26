@@ -18,9 +18,6 @@ export function IntroOverlay({ show }: IntroOverlayProps) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.35, ease: "easeOut" }}
         >
-          <a className="skipLink" href="#content">
-            {t("introSkip")}
-          </a>
           <motion.div
             className="introPanel"
             initial={{ scale: 0.92, opacity: 0.35 }}

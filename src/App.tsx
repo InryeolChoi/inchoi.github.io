@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { Education } from "./components/Education";
@@ -9,14 +9,15 @@ import { LanguageToggle } from "./components/LanguageToggle";
 import { Portfolio } from "./components/Portfolio";
 import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
-import { Timeline } from "./components/Timeline";
 import { getLocale, profile } from "./data/siteContent";
 import type { Locale } from "./types";
 
 function App() {
   const { i18n, t } = useTranslation();
   const [showIntro, setShowIntro] = useState(true);
+  const [isExporting, setIsExporting] = useState(false);
   const locale: Locale = getLocale(i18n.language);
+  const cvRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -32,6 +33,49 @@ function App() {
     document.documentElement.lang = locale;
   }, [locale]);
 
+  const handleDownloadCv = async () => {
+    if (!cvRef.current || isExporting) {
+      return;
+    }
+
+    setIsExporting(true);
+
+    try {
+      const html2pdf = (await import("html2pdf.js")).default;
+      await new Promise((resolve) => window.setTimeout(resolve, 150));
+      const exporter = html2pdf() as {
+        set: (options: Record<string, unknown>) => {
+          from: (element: HTMLElement) => {
+            save: () => Promise<void>;
+          };
+        };
+      };
+
+      await exporter
+        .set({
+          filename: "inryeol-choi-cv.pdf",
+          margin: [10, 10, 10, 10],
+          pagebreak: { mode: ["css", "legacy"] },
+          html2canvas: {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: "#ffffff",
+          },
+          jsPDF: {
+            unit: "mm",
+            format: "a4",
+            orientation: "portrait",
+          },
+        })
+        .from(cvRef.current)
+        .save();
+    } finally {
+      window.setTimeout(() => {
+        setIsExporting(false);
+      }, 150);
+    }
+  };
+
   return (
     <>
       <IntroOverlay show={showIntro} />
@@ -43,7 +87,7 @@ function App() {
           <LanguageToggle locale={locale} />
         </header>
 
-        <main className="pageContent" id="content">
+        <main className={isExporting ? "pageContent exportMode" : "pageContent"} id="content" ref={cvRef}>
           <Hero locale={locale} />
           <section className="sectionIntro">
             <p>{t("sectionLead")}</p>
@@ -56,12 +100,16 @@ function App() {
             </div>
           </section>
           <Skills locale={locale} />
-          <Timeline locale={locale} />
           <Portfolio locale={locale} />
           <Projects locale={locale} />
           <Experience locale={locale} />
           <Education locale={locale} />
         </main>
+        <footer className="pageFooter">
+          <button className="cvButton" type="button" onClick={handleDownloadCv} disabled={isExporting}>
+            {isExporting ? t("downloadingCv") : t("downloadCv")}
+          </button>
+        </footer>
       </div>
     </>
   );

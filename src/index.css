@@ -115,20 +115,16 @@ img {
 
 .heroSection {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
-  gap: 3rem;
-  align-items: center;
-  min-height: calc(100vh - 6rem);
+  gap: 1.5rem;
   padding: 2rem 0 3rem;
   border-bottom: 1px solid var(--line);
 }
 
-.heroCopy {
-  order: 1;
-}
-
-.heroVisual {
-  order: 2;
+.heroBody {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  gap: 2.25rem;
+  align-items: start;
 }
 
 .eyebrow,
@@ -143,7 +139,7 @@ img {
 }
 
 .heroTitle {
-  margin: 0.2rem 0 0;
+  margin: 0;
   font-family: "Cormorant Garamond", "Noto Sans KR", serif;
   font-size: clamp(3.8rem, 8vw, 6.6rem);
   line-height: 0.94;
@@ -170,40 +166,18 @@ img {
 
 .heroIntro {
   max-width: 60ch;
-  margin: 1.25rem 0 0;
+  margin: 1rem 0 0;
   font-size: 1rem;
-}
-
-.heroMeta {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem;
-  margin-top: 1.8rem;
 }
 
 .metaCard,
 .panelCard,
 .wideCard,
-.tipCard,
 .sectionIntro {
   border: 1px solid var(--line);
   border-radius: 24px;
   background: var(--surface);
   box-shadow: var(--shadow-soft);
-}
-
-.metaCard {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  padding: 1rem 1.1rem;
-}
-
-.heroActions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-top: 1.4rem;
 }
 
 .primaryButton,
@@ -264,17 +238,17 @@ img {
 
 .heroVisual {
   display: grid;
-  gap: 1.25rem;
-  justify-items: end;
+  justify-items: stretch;
 }
 
 .photoShell {
-  width: min(100%, 420px);
+  width: min(100%, 360px);
   padding: 1rem;
   border-radius: 32px;
   background: #ffffff;
   border: 1px solid var(--line);
   box-shadow: var(--shadow-strong);
+  justify-self: end;
 }
 
 .profilePhoto {
@@ -282,17 +256,6 @@ img {
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 24px;
-}
-
-.tipCard {
-  width: min(100%, 360px);
-  padding: 1.1rem 1.2rem;
-  background: var(--surface-muted);
-}
-
-.tipCard p {
-  margin: 0 0 0.45rem;
-  font-weight: 800;
 }
 
 .sectionIntro {
@@ -328,6 +291,7 @@ img {
 
 .contentSection {
   padding: 4rem 0 0;
+  break-inside: avoid;
 }
 
 .sectionHeading {
@@ -346,8 +310,73 @@ img {
 .skillsGrid,
 .cardGrid {
   display: grid;
+  gap: 1rem;
+}
+
+.cardGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.skillsColumns {
+  display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
+}
+
+.stackColumn {
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: var(--shadow-soft);
+}
+
+.stackColumn h3 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.stackItemList {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1.25rem;
+}
+
+.stackItemCard {
+  padding: 1rem;
+  border-radius: 20px;
+  background: var(--surface-muted);
+  border: 1px solid var(--line);
+}
+
+.stackItemHeader {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.skillIconBox {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: #1f2937;
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+.skillText h4 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.skillText p {
+  margin: 0.45rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+  line-height: 1.65;
 }
 
 .panelCard,
@@ -427,6 +456,10 @@ img {
   font-weight: 700;
 }
 
+.timelineBody .highlightList {
+  margin-top: 0.9rem;
+}
+
 .timelineBody p:last-child,
 .panelCard p:last-child,
 .wideCard p:last-child {
@@ -455,6 +488,37 @@ img {
 .stackedCards {
   display: grid;
   gap: 1rem;
+}
+
+.personalInfoBlock {
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface-muted);
+}
+
+.personalInfoList {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.personalInfoRow {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.personalInfoRow:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.personalInfoRow a {
+  color: var(--ink-strong);
+  word-break: break-all;
 }
 
 .highlightList {
@@ -504,29 +568,73 @@ img {
   color: rgba(255, 248, 239, 0.82);
 }
 
-.skipLink {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  padding: 0.7rem 0.95rem;
+.pageFooter {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 4rem;
+}
+
+.cvButton {
+  min-width: 220px;
+  min-height: 50px;
+  border: 1px solid var(--ink-strong);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
+  background: var(--ink-strong);
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: var(--shadow-soft);
+}
+
+.cvButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.cvButton:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.exportMode {
+  width: 100%;
+  padding: 0;
+}
+
+.exportMode .panelCard,
+.exportMode .wideCard,
+.exportMode .timelineBody,
+.exportMode .photoShell,
+.exportMode .personalInfoBlock,
+.exportMode .sectionIntro {
+  box-shadow: none;
+}
+
+.exportMode .anchorNav {
+  display: none;
+}
+
+.exportMode .heroSection {
+  min-height: auto;
 }
 
 @media (max-width: 960px) {
-  .heroSection,
-  .skillsGrid,
+  .heroBody,
+  .skillsColumns,
   .cardGrid {
     grid-template-columns: 1fr;
   }
 
   .heroSection {
-    min-height: auto;
     padding-top: 1rem;
   }
 
   .heroVisual {
     justify-items: stretch;
+  }
+
+  .photoShell {
+    justify-self: stretch;
   }
 
   .sectionIntro,
@@ -546,8 +654,9 @@ img {
     padding-inline: 0.8rem;
   }
 
-  .heroMeta {
+  .personalInfoRow {
     grid-template-columns: 1fr;
+    gap: 0.35rem;
   }
 
   .heroTitle {
@@ -557,9 +666,8 @@ img {
   .panelCard,
   .wideCard,
   .timelineBody,
-  .tipCard,
   .sectionIntro,
-  .metaCard {
+  .personalInfoBlock {
     border-radius: 20px;
   }
 

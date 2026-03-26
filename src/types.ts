@@ -9,16 +9,15 @@ export type LocalizedText = Record<Locale, string>;
 
 export type LocalizedList = Record<Locale, string[]>;
 
-export type SkillCategory = {
-  title: LocalizedText;
-  items: string[];
+export type SkillItem = {
+  name: string;
+  iconKey: string;
+  description: LocalizedText;
 };
 
-export type TimelineItem = {
-  period: string;
+export type SkillCategory = {
   title: LocalizedText;
-  subtitle: LocalizedText;
-  summary: LocalizedText;
+  items: SkillItem[];
 };
 
 export type PortfolioItem = {

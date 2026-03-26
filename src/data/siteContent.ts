@@ -3,20 +3,21 @@ import type {
   ExperienceItem,
   LinkItem,
   PortfolioItem,
+  SkillItem,
   SkillCategory,
-  TimelineItem,
 } from "../types";
 import type { Locale, ProjectItem } from "../types";
 
 export const profile = {
   name: "Inryeol Choi",
+  githubUrl: "https://github.com/InryeolChoi",
   headline: {
     ko: "지식을 구조화하고, 다시 학습 경험으로 연결하는 개발자",
     en: "A developer who structures knowledge and turns it into learning experiences",
   },
   intro: {
-    ko: "저는 기록한 지식이 다시 쓰이는 흐름에 관심이 있습니다. Markdown으로 개념을 정리하고, React로 사용자 경험을 만들고, Python과 GitHub Actions로 그 뒤의 흐름을 연결합니다. 작은 프로젝트라도 문제를 정의하고 구조를 설계한 뒤 직접 구현과 개선까지 이어 가며, 꾸준히 더 나은 학습 시스템과 개발 워크플로우를 만들고 있습니다.",
-    en: "I am interested in making knowledge reusable. I organize ideas with markdown, build user experiences with React, and connect the workflow behind them with Python and GitHub Actions. Even in small projects, I like defining the problem, designing the structure, and carrying the work through implementation and iteration to build better learning systems and developer workflows.",
+    ko: "늘 우직하게 도전하고 성장하려는 개발자 최인렬입니다. 학부 수업을 통해 프로그래밍을 접한 뒤, 데이터 분석보다 데이터를 관리하고 처리하는 구조에 더 큰 흥미를 느꼈습니다. 그 과정에서 자연스럽게 컴퓨터공학 전반에 관심을 갖게 되었고, 지금은 백엔드 프로그래밍, 데이터베이스, 클라우드 같은 분야를 꾸준히 공부하고 있습니다.",
+    en: "I am a developer who keeps moving forward with steady curiosity. After being introduced to programming through university courses, I became more interested in how data is managed and processed than in data analysis itself. That naturally led me deeper into computer science, and I am now continuously studying backend programming, databases, and cloud technologies.",
   },
   email: "dlsfuf0316@gmail.com",
   location: {
@@ -49,72 +50,123 @@ export const profile = {
 export const skillCategories: SkillCategory[] = [
   {
     title: {
-      ko: "Frontend",
-      en: "Frontend",
+      ko: "Core Stack",
+      en: "Core Stack",
     },
-    items: ["React", "Next.js", "TypeScript", "Vite", "Motion", "CSS Modules"],
+    items: [
+      {
+        name: "Java",
+        iconKey: "java",
+        description: {
+          ko: "학교 수업에서 Java를 처음 공부했고, <모던 자바 인 액션>을 읽으며 객체지향, Stream, Lambda 같은 현대적인 Java 문법을 더 깊게 익혔습니다.",
+          en: "I first studied Java in school, then deepened my understanding of object-oriented design and modern Java features such as streams and lambdas through Modern Java in Action.",
+        },
+      },
+      {
+        name: "React",
+        iconKey: "react",
+        description: {
+          ko: "포트폴리오 사이트와 학습용 UI를 만들면서 컴포넌트 설계, 상태 흐름, 화면 구조 분리에 익숙해졌습니다.",
+          en: "I used React to build this portfolio and study-focused interfaces, becoming comfortable with component design, state flow, and screen composition.",
+        },
+      },
+      {
+        name: "TypeScript",
+        iconKey: "typescript",
+        description: {
+          ko: "React 프로젝트에서 타입 안정성을 높이기 위해 사용했고, 데이터 구조를 명확하게 정의하며 유지보수성을 높였습니다.",
+          en: "I use TypeScript in React projects to improve type safety and keep data structures explicit and maintainable.",
+        },
+      },
+      {
+        name: "FastAPI",
+        iconKey: "fastapi",
+        description: {
+          ko: "Active Recall Quiz 백엔드에서 API 구조를 나누고 시험 생성, 제출, 채점 흐름을 연결하는 데 활용했습니다.",
+          en: "I used FastAPI in the Active Recall Quiz backend to structure APIs and support exam creation, submission, and grading flows.",
+        },
+      },
+    ] satisfies SkillItem[],
   },
   {
     title: {
-      ko: "Backend",
-      en: "Backend",
+      ko: "Familiar With",
+      en: "Familiar With",
     },
-    items: ["Python", "FastAPI", "SQLite", "PostgreSQL", "REST API"],
+    items: [
+      {
+        name: "Python",
+        iconKey: "python",
+        description: {
+          ko: "학습 앱 백엔드와 자동화 스크립트에서 사용했고, 로직을 빠르게 구현하고 실험하는 데 익숙합니다.",
+          en: "I use Python in backend work and automation scripts, and I am comfortable using it to prototype and implement logic quickly.",
+        },
+      },
+      {
+        name: "PostgreSQL",
+        iconKey: "postgresql",
+        description: {
+          ko: "database-playground 저장소에서 SQL과 데이터 모델링 기초를 직접 실습하며 익혔습니다.",
+          en: "I practiced SQL and database fundamentals hands-on in the database-playground repository.",
+        },
+      },
+      {
+        name: "Docker",
+        iconKey: "docker",
+        description: {
+          ko: "PostgreSQL 실습 환경을 컨테이너로 구성하면서 로컬 개발 환경을 반복 가능하게 만드는 흐름을 익혔습니다.",
+          en: "I used Docker to make the PostgreSQL practice environment reproducible and easier to manage locally.",
+        },
+      },
+      {
+        name: "GitHub Actions",
+        iconKey: "githubactions",
+        description: {
+          ko: "노트 동기화와 GitHub Pages 배포처럼 반복되는 작업을 자동화하는 데 활용하고 있습니다.",
+          en: "I use GitHub Actions to automate repetitive tasks such as note sync pipelines and GitHub Pages deployment.",
+        },
+      },
+    ] satisfies SkillItem[],
   },
   {
     title: {
-      ko: "Workflow",
-      en: "Workflow",
+      ko: "Explored",
+      en: "Explored",
     },
-    items: ["GitHub Actions", "Markdown Workflow", "Testing", "Docker", "Documentation"],
-  },
-];
-
-export const timelineItems: TimelineItem[] = [
-  {
-    period: "2026",
-    title: {
-      ko: "개인 브랜딩 사이트 리뉴얼",
-      en: "Personal branding site refresh",
-    },
-    subtitle: {
-      ko: "React 포트폴리오 재구성",
-      en: "React portfolio redesign",
-    },
-    summary: {
-      ko: "프로필, 경력, 프로젝트, 포트폴리오를 한눈에 볼 수 있도록 정보 구조를 다시 설계했습니다.",
-      en: "Reframed the information architecture so profile, experience, projects, and portfolio can be understood at a glance.",
-    },
-  },
-  {
-    period: "2025",
-    title: {
-      ko: "Active Recall Quiz 고도화",
-      en: "Expanded Active Recall Quiz",
-    },
-    subtitle: {
-      ko: "노트 동기화, 시험 흐름, 오답 복습 UX 정리",
-      en: "Refined note sync, exam flow, and wrong-answer review UX",
-    },
-    summary: {
-      ko: "외부 노트 저장소와 학습 앱의 책임을 분리하고, 동기화된 콘텐츠를 기반으로 학습/시험/채점 흐름을 구성했습니다.",
-      en: "Separated note ownership from the learning app and built study, exam, and grading flows on top of synced content.",
-    },
-  },
-  {
-    period: "2024",
-    title: {
-      ko: "학습용 콘텐츠 저장소와 DB 실험 축적",
-      en: "Built note repositories and database experiments",
-    },
-    subtitle: {
-      ko: "Markdown 기반 학습 자료 정리와 SQL 연습 병행",
-      en: "Combined markdown study notes with hands-on SQL practice",
-    },
-    summary: {
-      ko: "문서 기반 학습 저장소와 PostgreSQL 실습 환경을 꾸준히 쌓으면서 문제 해결의 기반을 넓혔습니다.",
-      en: "Expanded problem-solving foundations through markdown-driven learning repos and a PostgreSQL playground.",
-    },
+    items: [
+      {
+        name: "C",
+        iconKey: "c",
+        description: {
+          ko: "기초 프로그래밍과 알고리즘 학습 과정에서 메모리와 자료구조를 더 낮은 수준에서 이해하기 위해 다뤘습니다.",
+          en: "I explored C while studying programming fundamentals and algorithms to better understand memory and low-level data structures.",
+        },
+      },
+      {
+        name: "C++",
+        iconKey: "cplusplus",
+        description: {
+          ko: "알고리즘 문제 풀이와 기본 문법 학습을 통해 자료구조와 성능 감각을 익히는 데 활용했습니다.",
+          en: "I used C++ in algorithm practice to get more comfortable with data structures and performance-oriented thinking.",
+        },
+      },
+      {
+        name: "SwiftUI",
+        iconKey: "swift",
+        description: {
+          ko: "Apple 튜토리얼을 따라가며 SwiftUI 기반 앱 구조와 선언형 UI 작성 방식을 경험해봤습니다.",
+          en: "I explored declarative UI and app structure in SwiftUI by following Apple tutorials and small practice projects.",
+        },
+      },
+      {
+        name: "R",
+        iconKey: "r",
+        description: {
+          ko: "기초 통계와 데이터 처리 흐름을 이해하기 위해 문법과 패키지 사용 방식을 가볍게 학습했습니다.",
+          en: "I briefly studied R to understand basic statistics workflows and package-based data handling.",
+        },
+      },
+    ] satisfies SkillItem[],
   },
 ];
 
@@ -150,7 +202,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: "Profile Site",
     description: {
       ko: "개인 소개, 프로젝트, 타임라인을 정리하는 GitHub Pages 기반 포트폴리오 사이트입니다.",
-      en: "A GitHub Pages portfolio site that organizes profile, projects, and timeline content.",
+      en: "A GitHub Pages portfolio site that organizes profile, projects, and career content.",
     },
     techStack: ["React", "TypeScript", "Vite", "Motion"],
     githubUrl: "https://github.com/InryeolChoi/inchoi.github.io",
@@ -289,7 +341,6 @@ export const educationItems: EducationItem[] = [
 export const sectionAnchors = [
   { id: "about", label: { ko: "소개", en: "About" } },
   { id: "skills", label: { ko: "기술 스택", en: "Tech Stack" } },
-  { id: "timeline", label: { ko: "타임라인", en: "Timeline" } },
   { id: "portfolio", label: { ko: "포트폴리오", en: "Portfolio" } },
   { id: "projects", label: { ko: "프로젝트", en: "Projects" } },
   { id: "experience", label: { ko: "경력", en: "Experience" } },
