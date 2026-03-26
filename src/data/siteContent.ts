@@ -3,7 +3,9 @@ import type {
   EducationItem,
   ExperienceItem,
   LinkItem,
+  LearningHistoryItem,
   LocalizedInlineText,
+  OtherItem,
   PortfolioItem,
   SkillItem,
   SkillCategory,
@@ -475,6 +477,44 @@ export const educationItems: EducationItem[] = [
   },
 ];
 
+export const learningHistoryItems: LearningHistoryItem[] = [
+  {
+    period: "2024.01 - Present",
+    institution: "42 Seoul",
+    program: {
+      ko: "프로젝트 기반 소프트웨어 개발 과정",
+      en: "Project-based software engineering program",
+    },
+    summary: {
+      ko: "42서울에서 동료 학습과 프로젝트 중심 과정을 통해 알고리즘, 시스템 프로그래밍, 네트워크, 웹 백엔드, 협업 방식을 실전적으로 익히고 있습니다.",
+      en: "At 42 Seoul, I have been learning algorithms, systems programming, networking, web backend development, and collaboration through peer learning and project-based training.",
+    },
+    highlights: {
+      ko: [
+        "알고리즘 문제 해결과 C/C++ 기반 과제를 통해 기초 체력 강화",
+        "minishell, ft_irc, transcendence 같은 프로젝트를 통해 시스템과 웹 서비스 구조 학습",
+        "코드 리뷰와 동료 평가 중심 문화 속에서 협업과 피드백 경험 축적",
+      ],
+      en: [
+        "Strengthened core problem-solving skills through algorithm practice and C/C++ projects",
+        "Learned system and web-service architecture through projects such as minishell, ft_irc, and transcendence",
+        "Built collaboration and feedback habits through code review and peer evaluation culture",
+      ],
+    },
+  },
+];
+
+export const otherItems: OtherItem[] = learningHistoryItems.map((item) => ({
+  period: item.period,
+  organization: {
+    ko: item.institution,
+    en: item.institution,
+  },
+  role: item.program,
+  summary: item.summary,
+  highlights: item.highlights,
+}));
+
 export const certificationItems: CertificationItem[] = [
   {
     title: "OPIC",
@@ -499,6 +539,7 @@ export const sectionAnchors = [
   { id: "experience", label: { ko: "경력", en: "Experience" } },
   { id: "certifications", label: { ko: "자격증", en: "Certifications" } },
   { id: "education", label: { ko: "교육", en: "Education" } },
+  { id: "learning-history", label: { ko: "학습이력", en: "Learning History" } },
 ];
 
 export const getLocale = (language: string): Locale =>

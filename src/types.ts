@@ -59,6 +59,22 @@ export type EducationItem = {
   highlights: LocalizedList;
 };
 
+export type OtherItem = {
+  period: string;
+  organization: LocalizedText;
+  role: LocalizedText;
+  summary: LocalizedText;
+  highlights: LocalizedList;
+};
+
+export type LearningHistoryItem = {
+  period: string;
+  institution: string;
+  program: LocalizedText;
+  summary: LocalizedText;
+  highlights: LocalizedList;
+};
+
 export type CertificationItem = {
   title: string;
   grade?: string;
