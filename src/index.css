@@ -154,8 +154,9 @@ img {
   font-size: clamp(1.3rem, 2.2vw, 1.85rem);
   font-weight: 700;
   line-height: 1.2;
-  max-width: none;
-  white-space: nowrap;
+  max-width: 24ch;
+  white-space: normal;
+  text-wrap: balance;
 }
 
 .heroHeadlineLine {
@@ -163,12 +164,15 @@ img {
 }
 
 .heroHeadline.isMultiline {
-  width: auto;
-  max-width: none;
+  display: grid;
+  gap: 0.12em;
+  width: fit-content;
+  max-width: 100%;
 }
 
 .heroHeadline.isMultiline .heroHeadlineLine {
-  white-space: inherit;
+  display: block;
+  white-space: nowrap;
 }
 
 .heroIntro,
@@ -730,6 +734,10 @@ img {
 
   .heroHeadline {
     font-size: clamp(1.3rem, 6vw, 1.7rem);
+    max-width: 100%;
+  }
+
+  .heroHeadline.isMultiline .heroHeadlineLine {
     white-space: normal;
   }
 
