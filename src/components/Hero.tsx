@@ -112,7 +112,7 @@ export function Hero({ locale }: HeroProps) {
           mobileAmount: 0.05,
         })}
       >
-        <p className="sectionKicker">{t("personalInfo")}</p>
+        <p className="personalInfoTitle">{t("personalInfo")}</p>
         <div className="personalInfoList">
           <div className="personalInfoRow">
             <span className="metaLabel">{t("contact")}</span>

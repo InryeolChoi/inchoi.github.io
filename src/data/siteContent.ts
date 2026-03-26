@@ -144,6 +144,38 @@ export const skillCategories: SkillCategory[] = [
           "I studied Django through real project structure, learning app organization, models and migrations, URL routing, views, serializers, and core backend workflow.",
         ),
       },
+      {
+        name: "Git",
+        iconKey: "git",
+        description: plainDescription(
+          "Git을 활용한 협업을 반복해보며 브랜치를 나누어 작업하고, 변경 이력을 관리하고, 서로 다른 작업 내용을 합치는 흐름에 익숙해졌습니다. 특히 브랜치가 꼬이거나 충돌이 복잡하게 나는 상황도 직접 겪어보면서, 단순히 명령어를 쓰는 것을 넘어 히스토리를 어떻게 읽고 정리해야 협업이 덜 흔들리는지 많이 배우게 되었습니다.",
+          "By collaborating with Git repeatedly, I became comfortable with splitting work across branches, managing change history, and merging different lines of work. Handling messy branch states and complex conflicts also taught me that effective collaboration depends not just on commands, but on understanding and cleaning up history carefully.",
+        ),
+      },
+      {
+        name: "PostgreSQL",
+        iconKey: "postgresql",
+        description: plainDescription(
+          "PostgreSQL을 사용해 데이터베이스를 직접 구축해보며 테이블 구조를 설계하고, 관계를 정의하고, 애플리케이션과 연결해 데이터를 저장하고 조회하는 흐름을 익혔습니다. 실제 프로젝트에서 스키마를 어떻게 나누고 어떤 식으로 데이터를 쌓아야 이후 기능 확장과 조회가 더 자연스러운지도 함께 고민해보았습니다.",
+          "Using PostgreSQL, I built databases directly and learned how to design table structures, define relationships, and connect applications to store and retrieve data. In real project contexts, I also thought carefully about how schema decisions affect future feature growth and query flow.",
+        ),
+      },
+      {
+        name: "GCP",
+        iconKey: "gcp",
+        description: plainDescription(
+          "GCP Compute Engine의 free tier 환경을 사용해보며 VS Code Server와 RStudio Server를 직접 띄워 운영해봤습니다. 그 과정에서 메모리가 쉽게 부족해지는 문제를 자주 마주했고, 한정된 자원 안에서 어떤 서비스를 우선적으로 유지하고 어떻게 나눠 써야 하는지 계속 고민하며 자원 관리 감각을 키웠습니다.",
+          "Using the free tier of GCP Compute Engine, I ran both VS Code Server and RStudio Server and learned by dealing with frequent memory constraints. That experience pushed me to think carefully about how to prioritize, split, and sustain services under limited resources.",
+        ),
+      },
+      {
+        name: "Nginx",
+        iconKey: "nginx",
+        description: plainDescription(
+          "Nginx를 사용해 프론트엔드와 백엔드가 함께 동작하는 웹 애플리케이션 연결 구조를 구성해보고, 데이터베이스를 포함한 전체 서비스 흐름을 운영 관점에서 맞춰보았습니다. 또한 SSL/TLS 설정도 직접 적용해보며 웹 애플리케이션의 보안 안정성을 높이는 과정을 경험했습니다.",
+          "I used Nginx to set up the connection structure for a web application where the frontend, backend, and database work together as one service flow. I also configured SSL/TLS myself, gaining hands-on experience in improving the security and operational stability of the application.",
+        ),
+      },
     ] satisfies SkillItem[],
   },
   {
@@ -156,16 +188,16 @@ export const skillCategories: SkillCategory[] = [
         name: "R",
         iconKey: "r",
         description: plainDescription(
-          "기초 통계와 데이터 처리 흐름을 이해하기 위해 문법과 패키지 사용 방식을 가볍게 학습했습니다.",
-          "I briefly studied R to understand basic statistics workflows and package-based data handling.",
+          "통계학과 수업을 통해 R을 배우면서 통계적 검정 방법을 직접 연습하고, 데이터를 시각화하며 결과를 해석하는 흐름을 함께 익혔습니다.",
+          "Through statistics coursework, I learned R by practicing statistical testing methods and working on data visualization alongside result interpretation.",
         ),
       },
       {
         name: "TypeScript",
         iconKey: "typescript",
         description: plainDescription(
-          "React 프로젝트에서 타입 안정성을 높이기 위해 사용했고, 데이터 구조를 명확하게 정의하며 유지보수성을 높였습니다.",
-          "I used TypeScript in React projects to improve type safety and keep data structures explicit and maintainable.",
+          "React 프로젝트에서 타입 안정성을 높이기 위해 사용했고, 데이터 구조를 명확하게 정의하며 유지보수성을 높였습니다. 그 과정에서 단순히 문법만 쓰는 데 그치지 않고 Node.js가 어떻게 동작하는지도 함께 의식하며 살펴보았습니다.",
+          "I used TypeScript in React projects to improve type safety and keep data structures explicit and maintainable. Along the way, I also paid close attention to how Node.js works underneath rather than treating TypeScript as syntax alone.",
         ),
       },
       {
@@ -188,8 +220,8 @@ export const skillCategories: SkillCategory[] = [
         name: "Swift",
         iconKey: "swift",
         description: plainDescription(
-          "Apple 튜토리얼을 따라가며 Swift 문법과 iOS 앱 구조를 가볍게 탐색해봤습니다.",
-          "I briefly explored Swift syntax and iOS app structure through Apple tutorials and small practice exercises.",
+          "Swift로 42서울 내 교육생 위치를 확인하는 앱인 42Where를 유지보수하고 신기능을 추가해보며 iOS 앱 구조와 화면 흐름, 실제 서비스 코드를 다루는 경험을 쌓았습니다.",
+          "Using Swift, I worked on maintenance and feature additions for 42Where, an internal app used to check student locations at 42 Seoul, gaining experience with iOS app structure, screen flow, and real service code.",
         ),
       },
     ] satisfies SkillItem[],
@@ -353,14 +385,14 @@ export const experienceItems: ExperienceItem[] = [
       ko: [
         "거래 데이터 흐름과 시스템 프로세스를 분석해 주요 처리 구조와 통제 포인트 파악",
         "데이터 정합성 검증을 통해 시스템 구조와 통제 로직 이해",
-        "이커머스·핀테크 기업 대상 통제 design test 설계 지원",
-        "Java·Kotlin 코드 로직과 GitHub commit 로그를 검토하며 시스템 동작 구조와 변경 흐름 분석",
+        "이커머스·핀테크 등 약 14개 클라이언트 환경에서 거래 흐름, 시스템 구조, 통제 design test 분석 및 설계 지원",
+        "Java·Kotlin 코드 로직과 Git 기반 저장소(GitHub, GitLab, Bitbucket)의 변경 이력을 검토하며 시스템 동작 구조와 구현 흐름 분석",
       ],
       en: [
         "Analyzed transaction data flows and system processes to understand processing structures and key control points",
         "Validated data consistency to build an understanding of system structures and control logic",
-        "Supported control design tests for e-commerce and fintech companies",
-        "Reviewed Java and Kotlin application logic with GitHub commit histories to analyze system behavior and implementation changes",
+        "Supported analysis and design of control design tests across about 14 client environments in e-commerce, fintech, and related sectors",
+        "Reviewed Java and Kotlin application logic alongside change histories in Git-based repositories including GitHub, GitLab, and Bitbucket to analyze system behavior and implementation flows",
       ],
     },
   },
@@ -407,21 +439,21 @@ export const educationItems: EducationItem[] = [
       en: "Graduated from the Spanish Language Department",
     },
     summary: {
-      ko: "대일외국어고등학교 스페인어과에서 영어와 텝스를 중심으로 어학 기초를 탄탄히 다졌고, 스페인어 학습과 영자신문 동아리 활동을 통해 외국어를 읽고 쓰는 감각을 폭넓게 키웠습니다.",
-      en: "At Daeil Foreign Language High School, I built a strong language foundation through English and TEPS study, while broadening my reading and writing skills through Spanish coursework and English newspaper club activities.",
+      ko: "대일외국어고등학교 스페인어과에서 영어 회화가 필수적으로 이루어지는 시간과 영어 토론 수업, 모의 유엔 대회 등 다양한 활동을 통해 영어를 실제로 말하고 쓰는 경험을 쌓았습니다. 또한 문법, 독해, 어휘를 포괄하는 고급 영어 수업과 스페인어 학습, 영자신문 동아리 활동을 함께 경험하며 외국어를 입체적으로 익혔습니다.",
+      en: "At Daeil Foreign Language High School, I built practical English communication skills through required speaking sessions, English debate classes, and Model United Nations activities. Alongside advanced English coursework covering grammar, reading, vocabulary, Spanish studies, and English newspaper club activities, I developed a broad and applied language foundation.",
     },
     highlights: {
       ko: [
-        "영어 독해, 문법, 어휘 학습을 꾸준히 이어가며 기본기를 강화",
-        "TEPS 중심 학습으로 실전형 영어 이해력과 시험 대응 역량 축적",
-        "스페인어과 수업을 통해 제2외국어 학습 경험과 언어 감각 확장",
-        "영자신문 동아리에서 기사 읽기와 의견 정리를 반복하며 시사 영어 표현에 익숙해짐",
+        "영어 회화가 필수적으로 이루어지는 시간을 통해 말하기 중심의 영어 사용 경험 축적",
+        "영어 토론 수업과 모의 유엔 대회 참여를 통해 의견을 정리하고 전달하는 훈련 수행",
+        "문법, 독해, 어휘를 포괄하는 고급 영어 수업을 통해 전반적인 영어 역량 강화",
+        "스페인어과 수업과 영자신문 동아리 활동을 병행하며 제2외국어 학습과 시사 영어 감각 확장",
       ],
       en: [
-        "Strengthened English fundamentals through steady practice in reading, grammar, and vocabulary",
-        "Built practical English comprehension and test-taking discipline through TEPS-focused study",
-        "Expanded second-language learning experience and linguistic sensitivity through the Spanish program",
-        "Developed familiarity with current-affairs English through reading articles and organizing opinions in the English newspaper club",
+        "Built speaking-focused English experience through required conversation-based class sessions",
+        "Trained in organizing and presenting ideas through English debate classes and Model United Nations activities",
+        "Strengthened overall English ability through advanced coursework covering grammar, reading, and vocabulary",
+        "Expanded both second-language learning and current-affairs English familiarity through Spanish studies and the English newspaper club",
       ],
     },
   },
@@ -458,7 +490,7 @@ export const educationItems: EducationItem[] = [
 
 export const learningHistoryItems: LearningHistoryItem[] = [
   {
-    period: "2024.01 - Present",
+    period: "2023.03 - 2024.10",
     institution: {
       ko: "42서울",
       en: "école 42 (Seoul Campus)",
@@ -468,19 +500,23 @@ export const learningHistoryItems: LearningHistoryItem[] = [
       en: "Project-based software engineering program",
     },
     summary: {
-      ko: "42서울에서 동료 학습과 프로젝트 중심 과정을 통해 알고리즘, 시스템 프로그래밍, 네트워크, 웹 백엔드, 협업 방식을 실전적으로 익히고 있습니다.",
-      en: "At 42 Seoul, I have been learning algorithms, systems programming, networking, web backend development, and collaboration through peer learning and project-based training.",
+      ko: "42서울에서 프로젝트 기반 학습을 통해 C/C++ 기반 시스템 프로그래밍을 집중적으로 익히며 개발의 기초 체력과 컴퓨터과학의 기본기를 단단히 다졌습니다. 추상적으로 느껴질 수 있는 개념들을 직접 구현해 보며 바닥부터 이해하는 경험을 했고, 동료평가와 팀 프로젝트를 통해 협업과 문제 해결 역량도 함께 키웠습니다.",
+      en: "At 42 Seoul, I strengthened both programming fundamentals and core computer science foundations through project-based learning centered on C/C++ systems programming. By implementing concepts from the ground up, I developed a deeper understanding of ideas that can otherwise remain abstract, while peer review and team projects sharpened my collaboration and problem-solving skills.",
     },
     highlights: {
       ko: [
-        "알고리즘 문제 해결과 C/C++ 기반 과제를 통해 기초 체력 강화",
-        "minishell, ft_irc, transcendence 같은 프로젝트를 통해 시스템과 웹 서비스 구조 학습",
-        "코드 리뷰와 동료 평가 중심 문화 속에서 협업과 피드백 경험 축적",
+        "C/C++ 기반 시스템 프로그래밍을 통해 개발 기초와 컴퓨터과학 기본기 강화",
+        "직접 구현하는 프로젝트들을 통해 추상적인 개념을 바닥부터 만들어보며 심도 있게 이해",
+        "동료평가(peer review)를 통해 평가자와 피평가자 양쪽 입장에서 이해 수준을 함께 점검",
+        "월 160시간의 학습을 이어가며 몰입감 있는 개발 경험 축적",
+        "다양한 팀 프로젝트와 스터디를 경험하며 갈등을 마주하고 해결하는 과정에서 문제 해결 능력 향상",
       ],
       en: [
-        "Strengthened core problem-solving skills through algorithm practice and C/C++ projects",
-        "Learned system and web-service architecture through projects such as minishell, ft_irc, and transcendence",
-        "Built collaboration and feedback habits through code review and peer evaluation culture",
+        "Strengthened programming fundamentals and core computer science foundations through C/C++ systems programming",
+        "Built deeper understanding by implementing abstract concepts directly from the ground up",
+        "Used peer review to evaluate understanding from both reviewer and reviewee perspectives",
+        "Maintained an intensive learning rhythm of about 160 hours per month, developing a strong sense of immersion in programming",
+        "Improved problem-solving skills by navigating conflicts and collaboration through diverse team projects and study groups",
       ],
     },
   },
