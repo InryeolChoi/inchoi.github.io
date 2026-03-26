@@ -317,42 +317,47 @@ img {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.skillsColumns {
+.skillsList {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.1rem;
 }
 
-.stackColumn {
-  padding: 1.35rem;
+.stackSection {
+  padding: 1.5rem 1.6rem;
   border: 1px solid var(--line);
-  border-radius: 24px;
+  border-radius: 28px;
   background: #ffffff;
   box-shadow: var(--shadow-soft);
 }
 
-.stackColumn h3 {
+.stackSectionHeader {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.stackSection h3 {
   margin: 0;
-  font-size: 1.75rem;
+  font-size: clamp(1.5rem, 2vw, 1.9rem);
 }
 
-.stackItemList {
+.stackLineList {
   display: grid;
-  gap: 0.9rem;
-  margin-top: 1.25rem;
 }
 
-.stackItemCard {
-  padding: 1rem;
-  border-radius: 20px;
-  background: var(--surface-muted);
-  border: 1px solid var(--line);
+.stackLineItem {
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--line);
 }
 
-.stackItemHeader {
+.stackLineItem:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.stackLineHeader {
   display: grid;
   grid-template-columns: 64px minmax(0, 1fr);
-  gap: 0.9rem;
+  gap: 1rem;
   align-items: start;
 }
 
@@ -369,14 +374,14 @@ img {
 
 .skillText h4 {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
 }
 
 .skillText p {
-  margin: 0.45rem 0 0;
+  margin: 0.4rem 0 0;
   color: var(--ink-soft);
-  font-size: 0.94rem;
-  line-height: 1.65;
+  font-size: 0.98rem;
+  line-height: 1.7;
 }
 
 .panelCard,
@@ -620,7 +625,6 @@ img {
 
 @media (max-width: 960px) {
   .heroBody,
-  .skillsColumns,
   .cardGrid {
     grid-template-columns: 1fr;
   }
@@ -667,11 +671,28 @@ img {
   .wideCard,
   .timelineBody,
   .sectionIntro,
-  .personalInfoBlock {
+  .personalInfoBlock,
+  .stackSection {
     border-radius: 20px;
   }
 
   .anchorNav {
     gap: 0.5rem 0.8rem;
+  }
+
+  .stackSection {
+    padding: 1.3rem 1.1rem;
+  }
+
+  .stackLineHeader {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 0.85rem;
+  }
+
+  .skillIconBox {
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    font-size: 1.7rem;
   }
 }

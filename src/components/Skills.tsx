@@ -44,24 +44,26 @@ export function Skills({ locale }: SkillsProps) {
   return (
     <section className="contentSection">
       <SectionHeading id="skills" title={t("skillsTitle")} lead={t("skillsLead")} />
-      <div className="skillsColumns">
+      <div className="skillsList">
         {skillCategories.map((category, index) => (
           <motion.article
             key={category.title.en}
-            className="stackColumn"
+            className="stackSection"
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.45, delay: index * 0.08 }}
           >
-            <h3>{category.title[locale]}</h3>
-            <div className="stackItemList">
+            <div className="stackSectionHeader">
+              <h3>{category.title[locale]}</h3>
+            </div>
+            <div className="stackLineList">
               {category.items.map((item) => {
                 const Icon = iconMap[item.iconKey];
 
                 return (
-                  <article key={item.name} className="stackItemCard">
-                    <div className="stackItemHeader">
+                  <article key={item.name} className="stackLineItem">
+                    <div className="stackLineHeader">
                       <div className="skillIconBox">{Icon ? <Icon /> : null}</div>
                       <div className="skillText">
                         <h4>{item.name}</h4>
