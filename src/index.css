@@ -73,10 +73,10 @@ img {
 }
 
 .brand {
-  font-family: "Newsreader", "Noto Sans KR", serif;
-  font-size: 1.65rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-family: "Manrope", "Noto Sans KR", sans-serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
 }
 
 .languageToggle {
@@ -141,35 +141,34 @@ img {
 
 .heroTitle {
   margin: 0;
-  font-family: "Newsreader", "Noto Sans KR", serif;
-  font-size: clamp(3.8rem, 8vw, 6.6rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 0.94;
+  font-family: "Manrope", "Noto Sans KR", sans-serif;
+  font-size: clamp(3.5rem, 7vw, 5.8rem);
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
 }
 
 .heroHeadline {
   margin: 1rem 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.12em;
-  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  display: block;
+  font-size: clamp(1.3rem, 2.2vw, 1.85rem);
   font-weight: 700;
-  line-height: 1.18;
-  max-width: 18ch;
+  line-height: 1.2;
+  max-width: none;
+  white-space: nowrap;
 }
 
 .heroHeadlineLine {
-  display: block;
+  display: inline;
 }
 
 .heroHeadline.isMultiline {
-  width: fit-content;
-  max-width: 100%;
+  width: auto;
+  max-width: none;
 }
 
 .heroHeadline.isMultiline .heroHeadlineLine {
-  white-space: nowrap;
+  white-space: inherit;
 }
 
 .heroIntro,
@@ -595,11 +594,11 @@ img {
 
 .introHeading {
   margin: 0.65rem 0 0;
-  font-family: "Newsreader", "Noto Sans KR", serif;
-  font-size: clamp(3rem, 7vw, 5.4rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 0.95;
+  font-family: "Manrope", "Noto Sans KR", sans-serif;
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  line-height: 1;
 }
 
 .introSubtitle {
@@ -703,6 +702,7 @@ img {
 
   .heroHeadline {
     font-size: clamp(1.3rem, 6vw, 1.7rem);
+    white-space: normal;
   }
 
   .panelCard,

@@ -12,11 +12,11 @@ export const profile = {
   name: "Inryeol Choi",
   githubUrl: "https://github.com/InryeolChoi",
   headline: {
-    ko: "늘 우직하게,\n늘 갈망하는 개발자",
+    ko: "늘 우직하게, 늘 갈망하는 개발자",
     en: "A developer who structures knowledge and turns it into learning experiences",
   },
   intro: {
-    ko: "늘 우직하게 도전하고 성장하려는 개발자 최인렬입니다. 학부 수업을 통해 프로그래밍을 접한 뒤, 데이터 분석보다 데이터를 관리하고 처리하는 구조에 더 큰 흥미를 느꼈습니다. 그 과정에서 자연스럽게 컴퓨터공학 전반에 관심을 갖게 되었고, 지금은 백엔드 프로그래밍, 데이터베이스, 클라우드 같은 분야를 꾸준히 공부하고 있습니다.",
+    ko: "늘 우직하게 도전하고, 늘 갈망하며 성장하려는 개발자 최인렬입니다. 학부 수업을 들으며 프로그래밍을 처음 접했고, 처음에는 빅데이터를 통해 혁신적인 서비스를 개발해 보고 싶다는 마음으로 공부를 시작했습니다. 그런데 데이터 분석을 공부하다 보니, 데이터를 해석하는 일 자체보다 데이터를 어떻게 저장하고 관리하고 처리할지 구조를 설계하는 일에 더 큰 흥미를 느끼게 되었습니다. 그 경험을 계기로 자연스럽게 컴퓨터공학 전반에 관심을 가지게 되었고, 지금은 백엔드 프로그래밍, 데이터베이스, 클라우드 같은 분야를 중심으로 꾸준히 공부하고 있습니다. 멈추지 않고 끊임없이 나아가며, 기술로 더 단단한 서비스를 만드는 개발자가 되고 싶습니다.",
     en: "I am a developer who keeps moving forward with steady curiosity. After being introduced to programming through university courses, I became more interested in how data is managed and processed than in data analysis itself. That naturally led me deeper into computer science, and I am now continuously studying backend programming, databases, and cloud technologies.",
   },
   email: "dlsfuf0316@gmail.com",
