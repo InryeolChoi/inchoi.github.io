@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
 import { profile, sectionAnchors } from "../data/siteContent";
+import { getRevealMotion, useIsCompactViewport } from "../hooks/useViewportReveal";
 import type { Locale } from "../types";
 
 type HeroProps = {
@@ -10,6 +11,7 @@ type HeroProps = {
 
 export function Hero({ locale }: HeroProps) {
   const { t } = useTranslation();
+  const isCompact = useIsCompactViewport();
   const headlineLines = profile.headline[locale].split("\n");
   const introParagraphs = profile.intro[locale].split("\n\n");
 
@@ -17,10 +19,15 @@ export function Hero({ locale }: HeroProps) {
     <section className="heroSection" id="about">
       <motion.h1
         className="heroTitle"
-        initial={{ y: 28, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration: 0.55, delay: 0.05 }}
+        {...getRevealMotion(isCompact, {
+          axis: "y",
+          offset: 28,
+          mobileOffset: 8,
+          duration: 0.55,
+          delay: 0.05,
+          amount: 0.6,
+          mobileAmount: 0.05,
+        })}
       >
         {profile.name}
       </motion.h1>
@@ -28,10 +35,14 @@ export function Hero({ locale }: HeroProps) {
       <div className="heroBody">
         <motion.div
           className="heroVisual"
-          initial={{ x: 24, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          {...getRevealMotion(isCompact, {
+            axis: "x",
+            offset: 24,
+            mobileOffset: 8,
+            duration: 0.7,
+            amount: 0.4,
+            mobileAmount: 0.05,
+          })}
         >
           <div className="photoShell">
             <img alt={`${profile.name} profile`} className="profilePhoto" src={profile.photoPath} />
@@ -41,19 +52,28 @@ export function Hero({ locale }: HeroProps) {
         <div className="heroCopy">
           <motion.p
             className="eyebrow"
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: 0.45 }}
+            {...getRevealMotion(isCompact, {
+              axis: "y",
+              offset: 20,
+              mobileOffset: 8,
+              duration: 0.45,
+              amount: 0.6,
+              mobileAmount: 0.05,
+            })}
           >
             {t("heroEyebrow")}
           </motion.p>
           <motion.p
             className={headlineLines.length > 1 ? "heroHeadline isMultiline" : "heroHeadline"}
-            initial={{ y: 28, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: 0.55, delay: 0.1 }}
+            {...getRevealMotion(isCompact, {
+              axis: "y",
+              offset: 28,
+              mobileOffset: 8,
+              duration: 0.55,
+              delay: 0.1,
+              amount: 0.6,
+              mobileAmount: 0.05,
+            })}
           >
             {headlineLines.map((line) => (
               <span key={line} className="heroHeadlineLine">
@@ -63,10 +83,15 @@ export function Hero({ locale }: HeroProps) {
           </motion.p>
           <motion.div
             className="heroIntro"
-            initial={{ y: 28, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.55, delay: 0.15 }}
+            {...getRevealMotion(isCompact, {
+              axis: "y",
+              offset: 28,
+              mobileOffset: 8,
+              duration: 0.55,
+              delay: 0.15,
+              amount: 0.5,
+              mobileAmount: 0.05,
+            })}
           >
             {introParagraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
@@ -77,10 +102,15 @@ export function Hero({ locale }: HeroProps) {
 
       <motion.div
         className="personalInfoBlock"
-        initial={{ y: 28, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration: 0.55, delay: 0.2 }}
+        {...getRevealMotion(isCompact, {
+          axis: "y",
+          offset: 28,
+          mobileOffset: 8,
+          duration: 0.55,
+          delay: 0.2,
+          amount: 0.6,
+          mobileAmount: 0.05,
+        })}
       >
         <p className="sectionKicker">{t("personalInfo")}</p>
         <div className="personalInfoList">
@@ -99,10 +129,15 @@ export function Hero({ locale }: HeroProps) {
 
       <motion.nav
         className="anchorNav"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
+        {...getRevealMotion(isCompact, {
+          axis: "y",
+          offset: 14,
+          mobileOffset: 6,
+          duration: 0.6,
+          delay: 0.3,
+          amount: 0.6,
+          mobileAmount: 0.05,
+        })}
       >
         {sectionAnchors.map((anchor) => (
           <a key={anchor.id} href={`#${anchor.id}`}>

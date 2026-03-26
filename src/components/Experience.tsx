@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
 import { experienceItems } from "../data/siteContent";
+import { getRevealMotion, useIsCompactViewport } from "../hooks/useViewportReveal";
 import type { Locale } from "../types";
 import { SectionHeading } from "./SectionHeading";
 
@@ -11,6 +12,7 @@ type ExperienceProps = {
 
 export function Experience({ locale }: ExperienceProps) {
   const { t } = useTranslation();
+  const isCompact = useIsCompactViewport();
 
   return (
     <section className="contentSection">
@@ -20,10 +22,15 @@ export function Experience({ locale }: ExperienceProps) {
           <motion.div
             key={`${item.company.en}-${item.period}`}
             className="timelineItem"
-            initial={{ x: -24, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: index * 0.08 }}
+            {...getRevealMotion(isCompact, {
+              axis: "x",
+              offset: -24,
+              mobileOffset: -8,
+              duration: 0.5,
+              delay: index * 0.08,
+              amount: 0.3,
+              mobileAmount: 0.08,
+            })}
           >
             <div className="timelineBody">
               <p className="timelinePeriod">{item.period}</p>

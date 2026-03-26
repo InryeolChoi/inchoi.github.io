@@ -19,6 +19,7 @@ import { useTranslation } from "react-i18next";
 import type { IconType } from "react-icons";
 
 import { skillCategories } from "../data/siteContent";
+import { getRevealMotion, useIsCompactViewport } from "../hooks/useViewportReveal";
 import type { Locale } from "../types";
 import { SectionHeading } from "./SectionHeading";
 
@@ -46,6 +47,7 @@ const iconMap: Record<string, IconType> = {
 
 export function Skills({ locale }: SkillsProps) {
   const { t } = useTranslation();
+  const isCompact = useIsCompactViewport();
 
   return (
     <section className="contentSection">
@@ -55,10 +57,15 @@ export function Skills({ locale }: SkillsProps) {
           <motion.article
             key={category.title.en}
             className="stackSection"
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.45, delay: index * 0.08 }}
+            {...getRevealMotion(isCompact, {
+              axis: "y",
+              offset: 30,
+              mobileOffset: 8,
+              duration: 0.45,
+              delay: index * 0.08,
+              amount: 0.35,
+              mobileAmount: 0.08,
+            })}
           >
             <div className="stackSectionHeader">
               <h3>{category.title[locale]}</h3>
