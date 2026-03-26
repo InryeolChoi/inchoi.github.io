@@ -97,11 +97,19 @@ export const skillCategories: SkillCategory[] = [
         ),
       },
       {
-        name: "GitHub Actions",
-        iconKey: "githubactions",
+        name: "GCP",
+        iconKey: "gcp",
         description: plainDescription(
-          "GitHub Actions는 단순히 배포 버튼을 대신 눌러주는 도구라기보다, 반복 작업을 어떤 조건에서 자동화해야 팀과 개인의 흐름이 가장 덜 끊기는지 고민하게 만든 도구였습니다. 노트 동기화, 정적 사이트 배포, 체크 자동화 같은 작업을 구성하면서 트리거 시점, 실패 시 확인 방식, 작업 단위 분리를 직접 다뤄봤고, 그 과정에서 자동화는 편의 기능이 아니라 작업 품질과 일관성을 지키는 장치라는 점을 분명히 느꼈습니다.",
-          "GitHub Actions felt less like a button replacement for deployment and more like a tool that made me think carefully about which repetitive tasks should be automated and under what conditions. While setting up note sync, static site deployment, and routine checks, I worked through trigger timing, failure visibility, and job separation, and came to see automation as a way to protect consistency and workflow quality rather than just save clicks.",
+          "GCP Compute Engine의 free tier 환경을 사용해보며 VS Code Server와 RStudio Server를 직접 띄워 운영해봤습니다. 그 과정에서 메모리가 쉽게 부족해지는 문제를 자주 마주했고, 한정된 자원 안에서 어떤 서비스를 우선적으로 유지하고 어떻게 나눠 써야 하는지 계속 고민하며 자원 관리 감각을 키웠습니다.",
+          "Using the free tier of GCP Compute Engine, I ran both VS Code Server and RStudio Server and learned by dealing with frequent memory constraints. That experience pushed me to think carefully about how to prioritize, split, and sustain services under limited resources.",
+        ),
+      },
+      {
+        name: "Nginx",
+        iconKey: "nginx",
+        description: plainDescription(
+          "Nginx를 사용해 프론트엔드와 백엔드가 함께 동작하는 웹 애플리케이션 연결 구조를 구성해보고, 데이터베이스를 포함한 전체 서비스 흐름을 운영 관점에서 맞춰보았습니다. 또한 SSL/TLS 설정도 직접 적용해보며 웹 애플리케이션의 보안 안정성을 높이는 과정을 경험했습니다.",
+          "I used Nginx to set up the connection structure for a web application where the frontend, backend, and database work together as one service flow. I also configured SSL/TLS myself, gaining hands-on experience in improving the security and operational stability of the application.",
         ),
       },
     ] satisfies SkillItem[],
@@ -161,19 +169,11 @@ export const skillCategories: SkillCategory[] = [
         ),
       },
       {
-        name: "GCP",
-        iconKey: "gcp",
+        name: "GitHub Actions",
+        iconKey: "githubactions",
         description: plainDescription(
-          "GCP Compute Engine의 free tier 환경을 사용해보며 VS Code Server와 RStudio Server를 직접 띄워 운영해봤습니다. 그 과정에서 메모리가 쉽게 부족해지는 문제를 자주 마주했고, 한정된 자원 안에서 어떤 서비스를 우선적으로 유지하고 어떻게 나눠 써야 하는지 계속 고민하며 자원 관리 감각을 키웠습니다.",
-          "Using the free tier of GCP Compute Engine, I ran both VS Code Server and RStudio Server and learned by dealing with frequent memory constraints. That experience pushed me to think carefully about how to prioritize, split, and sustain services under limited resources.",
-        ),
-      },
-      {
-        name: "Nginx",
-        iconKey: "nginx",
-        description: plainDescription(
-          "Nginx를 사용해 프론트엔드와 백엔드가 함께 동작하는 웹 애플리케이션 연결 구조를 구성해보고, 데이터베이스를 포함한 전체 서비스 흐름을 운영 관점에서 맞춰보았습니다. 또한 SSL/TLS 설정도 직접 적용해보며 웹 애플리케이션의 보안 안정성을 높이는 과정을 경험했습니다.",
-          "I used Nginx to set up the connection structure for a web application where the frontend, backend, and database work together as one service flow. I also configured SSL/TLS myself, gaining hands-on experience in improving the security and operational stability of the application.",
+          "GitHub Actions는 단순히 배포 버튼을 대신 눌러주는 도구라기보다, 반복 작업을 어떤 조건에서 자동화해야 팀과 개인의 흐름이 가장 덜 끊기는지 고민하게 만든 도구였습니다. 노트 동기화, 정적 사이트 배포, 체크 자동화 같은 작업을 구성하면서 트리거 시점, 실패 시 확인 방식, 작업 단위 분리를 직접 다뤄봤고, 그 과정에서 자동화는 편의 기능이 아니라 작업 품질과 일관성을 지키는 장치라는 점을 분명히 느꼈습니다.",
+          "GitHub Actions felt less like a button replacement for deployment and more like a tool that made me think carefully about which repetitive tasks should be automated and under what conditions. While setting up note sync, static site deployment, and routine checks, I worked through trigger timing, failure visibility, and job separation, and came to see automation as a way to protect consistency and workflow quality rather than just save clicks.",
         ),
       },
     ] satisfies SkillItem[],

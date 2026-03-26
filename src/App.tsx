@@ -44,7 +44,9 @@ function App() {
 
     try {
       const html2pdf = (await import("html2pdf.js")).default;
-      await new Promise((resolve) => window.setTimeout(resolve, 150));
+      await new Promise((resolve) => window.requestAnimationFrame(() => resolve(undefined)));
+      await new Promise((resolve) => window.requestAnimationFrame(() => resolve(undefined)));
+      await new Promise((resolve) => window.setTimeout(resolve, 250));
       const exporter = html2pdf() as {
         set: (options: Record<string, unknown>) => {
           from: (element: HTMLElement) => {
@@ -52,16 +54,39 @@ function App() {
           };
         };
       };
+      const exportWidth = Math.ceil(cvRef.current.getBoundingClientRect().width);
 
       await exporter
         .set({
           filename: "inryeol-choi-cv.pdf",
-          margin: [10, 10, 10, 10],
-          pagebreak: { mode: ["css", "legacy"] },
+          margin: [8, 8, 8, 8],
+          image: {
+            type: "jpeg",
+            quality: 0.98,
+          },
+          pagebreak: {
+            mode: ["css", "legacy"],
+            avoid: [
+              ".photoShell",
+              ".personalInfoBlock",
+              ".stackSection",
+              ".stackLineItem",
+              ".wideCard",
+              ".timelineItem",
+              ".timelineBody",
+              ".courseGroupCard",
+              ".coursePill",
+              ".certificationCard",
+              ".metaRow",
+            ],
+          },
           html2canvas: {
-            scale: 2,
+            scale: 1,
             useCORS: true,
             backgroundColor: "#ffffff",
+            scrollX: 0,
+            scrollY: 0,
+            windowWidth: exportWidth,
           },
           jsPDF: {
             unit: "mm",
