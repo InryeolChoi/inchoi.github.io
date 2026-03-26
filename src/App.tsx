@@ -6,7 +6,6 @@ import { Experience } from "./components/Experience";
 import { Hero } from "./components/Hero";
 import { IntroOverlay } from "./components/IntroOverlay";
 import { LanguageToggle } from "./components/LanguageToggle";
-import { Portfolio } from "./components/Portfolio";
 import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
 import { getLocale } from "./data/siteContent";
@@ -90,7 +89,6 @@ function App() {
         <main className={isExporting ? "pageContent exportMode" : "pageContent"} id="content" ref={cvRef}>
           <Hero locale={locale} />
           <Skills locale={locale} />
-          <Portfolio locale={locale} />
           <Projects locale={locale} />
           <Experience locale={locale} />
           <Education locale={locale} />
