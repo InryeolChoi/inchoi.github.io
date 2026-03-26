@@ -1,4 +1,5 @@
 import type {
+  EducationItem,
   ExperienceItem,
   LinkItem,
   PortfolioItem,
@@ -258,13 +259,41 @@ export const experienceItems: ExperienceItem[] = [
   },
 ];
 
+export const educationItems: EducationItem[] = [
+  {
+    period: "Add Period",
+    institution: "Add School or Program",
+    program: {
+      ko: "전공 또는 교육 과정을 입력하세요",
+      en: "Add your major or education program",
+    },
+    summary: {
+      ko: "학위, 부트캠프, 교육 과정, 자격 준비 이력 등을 여기에 정리할 수 있습니다.",
+      en: "You can list your degree, bootcamp, training course, or certification preparation here.",
+    },
+    highlights: {
+      ko: [
+        "학교명 또는 교육 기관명 입력",
+        "전공 또는 과정명 입력",
+        "배운 내용이나 핵심 성과 2~3개 정리",
+      ],
+      en: [
+        "Add your school or education provider",
+        "Add your major or course name",
+        "Summarize two or three key learnings or outcomes",
+      ],
+    },
+  },
+];
+
 export const sectionAnchors = [
   { id: "about", label: { ko: "소개", en: "About" } },
-  { id: "skills", label: { ko: "스킬", en: "Skills" } },
+  { id: "skills", label: { ko: "기술 스택", en: "Tech Stack" } },
   { id: "timeline", label: { ko: "타임라인", en: "Timeline" } },
   { id: "portfolio", label: { ko: "포트폴리오", en: "Portfolio" } },
   { id: "projects", label: { ko: "프로젝트", en: "Projects" } },
   { id: "experience", label: { ko: "경력", en: "Experience" } },
+  { id: "education", label: { ko: "교육", en: "Education" } },
 ];
 
 export const getLocale = (language: string): Locale =>

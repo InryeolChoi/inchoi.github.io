@@ -44,3 +44,11 @@ export type ExperienceItem = {
   summary: LocalizedText;
   highlights: LocalizedList;
 };
+
+export type EducationItem = {
+  period: string;
+  institution: string;
+  program: LocalizedText;
+  summary: LocalizedText;
+  highlights: LocalizedList;
+};

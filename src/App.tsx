@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import { Education } from "./components/Education";
 import { Experience } from "./components/Experience";
 import { Hero } from "./components/Hero";
 import { IntroOverlay } from "./components/IntroOverlay";
@@ -59,6 +60,7 @@ function App() {
           <Portfolio locale={locale} />
           <Projects locale={locale} />
           <Experience locale={locale} />
+          <Education locale={locale} />
         </main>
       </div>
     </>
