@@ -529,9 +529,10 @@ export const otherItems: OtherItem[] = [
 ];
 
 export const sectionAnchors = [
+  { id: "skills", label: { ko: "기술 스택", en: "Tech Stack" } },
   { id: "projects", label: { ko: "프로젝트", en: "Projects" } },
-  { id: "education", label: { ko: "교육", en: "Education" } },
   { id: "learning-history", label: { ko: "학습이력", en: "Learning History" } },
+  { id: "education", label: { ko: "교육", en: "Education" } },
   { id: "certifications", label: { ko: "자격증", en: "Certifications" } },
   { id: "experience", label: { ko: "경력", en: "Experience" } },
   { id: "other", label: { ko: "기타", en: "Other" } },
