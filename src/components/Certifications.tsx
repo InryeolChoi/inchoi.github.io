@@ -31,11 +31,7 @@ export function Certifications({ locale }: CertificationsProps) {
 
   return (
     <section className="contentSection">
-      <SectionHeading
-        id="certifications"
-        title={t("certificationsTitle")}
-        lead={t("certificationsLead")}
-      />
+      <SectionHeading id="certifications" title={t("certificationsTitle")} />
       <div className="certificationGrid" ref={sectionRef}>
         {certificationItems.map((item, index) => (
           <motion.article

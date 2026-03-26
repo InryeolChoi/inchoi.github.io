@@ -14,7 +14,7 @@ export function Projects({ locale }: ProjectsProps) {
 
   return (
     <section className="contentSection">
-      <SectionHeading id="projects" title={t("projectsTitle")} lead={t("projectsLead")} />
+      <SectionHeading id="projects" title={t("projectsTitle")} />
       <div className="stackedCards">
         {projectItems.map((item, index) => (
           <motion.article

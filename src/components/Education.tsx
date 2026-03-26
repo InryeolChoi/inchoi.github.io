@@ -53,12 +53,31 @@ const parseCourseGroup = (highlight: string): CourseGroup | null => {
   return { title, courses };
 };
 
+const mergeCourseGroups = (highlights: string[]): CourseGroup[] => {
+  const merged = new Map<string, CourseItem[]>();
+
+  highlights.forEach((highlight) => {
+    const group = parseCourseGroup(highlight);
+    if (!group) {
+      return;
+    }
+
+    const existing = merged.get(group.title) ?? [];
+    merged.set(group.title, [...existing, ...group.courses]);
+  });
+
+  return Array.from(merged.entries()).map(([title, courses]) => ({
+    title,
+    courses,
+  }));
+};
+
 export function Education({ locale }: EducationProps) {
   const { t } = useTranslation();
 
   return (
     <section className="contentSection">
-      <SectionHeading id="education" title={t("educationTitle")} lead={t("educationLead")} />
+      <SectionHeading id="education" title={t("educationTitle")} />
       <div className="timelineList">
         {educationItems.map((item, index) => (
           <motion.div
@@ -75,9 +94,7 @@ export function Education({ locale }: EducationProps) {
               <p className="timelineSubtitle">{item.program[locale]}</p>
               <p>{item.summary[locale]}</p>
               {(() => {
-                const courseGroups = item.highlights[locale]
-                  .map((highlight) => parseCourseGroup(highlight))
-                  .filter((group): group is CourseGroup => group !== null);
+                const courseGroups = mergeCourseGroups(item.highlights[locale]);
 
                 if (courseGroups.length > 0) {
                   return (

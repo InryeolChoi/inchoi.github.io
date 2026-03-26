@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 type SectionHeadingProps = {
   id: string;
   title: string;
-  lead: string;
+  lead?: string;
 };
 
 export function SectionHeading({ id, title, lead }: SectionHeadingProps) {
@@ -17,7 +17,7 @@ export function SectionHeading({ id, title, lead }: SectionHeadingProps) {
       transition={{ duration: 0.5 }}
     >
       <p className="sectionKicker">{title}</p>
-      <p className="sectionLead">{lead}</p>
+      {lead ? <p className="sectionLead">{lead}</p> : null}
     </motion.div>
   );
 }

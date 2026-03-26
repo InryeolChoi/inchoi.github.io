@@ -14,7 +14,7 @@ export function Experience({ locale }: ExperienceProps) {
 
   return (
     <section className="contentSection">
-      <SectionHeading id="experience" title={t("experienceTitle")} lead={t("experienceLead")} />
+      <SectionHeading id="experience" title={t("experienceTitle")} />
       <div className="timelineList">
         {experienceItems.map((item, index) => (
           <motion.div

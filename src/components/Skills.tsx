@@ -49,7 +49,7 @@ export function Skills({ locale }: SkillsProps) {
 
   return (
     <section className="contentSection">
-      <SectionHeading id="skills" title={t("skillsTitle")} lead={t("skillsLead")} />
+      <SectionHeading id="skills" title={t("skillsTitle")} />
       <div className="skillsList">
         {skillCategories.map((category, index) => (
           <motion.article

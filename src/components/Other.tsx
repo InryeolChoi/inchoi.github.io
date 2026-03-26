@@ -31,7 +31,7 @@ export function Other({ locale }: OtherProps) {
 
   return (
     <section className="contentSection">
-      <SectionHeading id="other" title={t("otherTitle")} lead={t("otherLead")} />
+      <SectionHeading id="other" title={t("otherTitle")} />
       <div className="timelineList" ref={sectionRef}>
         {otherItems.map((item, index) => (
           <motion.div

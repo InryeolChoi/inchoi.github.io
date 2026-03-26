@@ -14,11 +14,7 @@ export function LearningHistory({ locale }: LearningHistoryProps) {
 
   return (
     <section className="contentSection">
-      <SectionHeading
-        id="learning-history"
-        title={t("learningHistoryTitle")}
-        lead={t("learningHistoryLead")}
-      />
+      <SectionHeading id="learning-history" title={t("learningHistoryTitle")} />
       <div className="timelineList">
         {learningHistoryItems.map((item, index) => (
           <motion.div
