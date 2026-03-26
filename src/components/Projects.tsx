@@ -1,0 +1,50 @@
+import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
+
+import { projectItems } from "../data/siteContent";
+import type { Locale } from "../types";
+import { SectionHeading } from "./SectionHeading";
+
+type ProjectsProps = {
+  locale: Locale;
+};
+
+export function Projects({ locale }: ProjectsProps) {
+  const { t } = useTranslation();
+
+  return (
+    <section className="contentSection">
+      <SectionHeading id="projects" title={t("projectsTitle")} lead={t("projectsLead")} />
+      <div className="stackedCards">
+        {projectItems.map((item, index) => (
+          <motion.article
+            key={item.title}
+            className="wideCard"
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.45, delay: index * 0.08 }}
+          >
+            <div className="wideCardHeader">
+              <div>
+                <h3>{item.title}</h3>
+                <p className="wideCardRole">
+                  {t("role")}: {item.role[locale]}
+                </p>
+              </div>
+              <a href={item.githubUrl} target="_blank" rel="noreferrer">
+                {t("viewGithub")}
+              </a>
+            </div>
+            <p>{item.summary[locale]}</p>
+            <ul className="highlightList">
+              {item.highlights[locale].map((highlight) => (
+                <li key={highlight}>{highlight}</li>
+              ))}
+            </ul>
+          </motion.article>
+        ))}
+      </div>
+    </section>
+  );
+}
