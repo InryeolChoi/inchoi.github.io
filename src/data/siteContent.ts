@@ -10,12 +10,12 @@ import type { Locale, ProjectItem } from "../types";
 export const profile = {
   name: "Inryeol Choi",
   headline: {
-    ko: "학습 시스템과 React 기반 제품 경험을 만드는 개발자",
-    en: "A developer building learning systems and React-based product experiences",
+    ko: "지식을 구조화하고, 다시 학습 경험으로 연결하는 개발자",
+    en: "A developer who structures knowledge and turns it into learning experiences",
   },
   intro: {
-    ko: "문서화된 지식을 다시 학습 경험으로 연결하는 흐름에 관심이 많습니다. React 프론트엔드, Python 백엔드, 그리고 GitHub 기반 자동화를 엮어 학습용 제품과 개인 프로젝트를 꾸준히 만들고 있습니다.",
-    en: "I am interested in turning documented knowledge into repeatable learning experiences. I regularly build personal products that connect React frontends, Python backends, and GitHub-based automation.",
+    ko: "저는 기록한 지식이 다시 쓰이는 흐름에 관심이 있습니다. Markdown으로 개념을 정리하고, React로 사용자 경험을 만들고, Python과 GitHub Actions로 그 뒤의 흐름을 연결합니다. 작은 프로젝트라도 문제를 정의하고 구조를 설계한 뒤 직접 구현과 개선까지 이어 가며, 꾸준히 더 나은 학습 시스템과 개발 워크플로우를 만들고 있습니다.",
+    en: "I am interested in making knowledge reusable. I organize ideas with markdown, build user experiences with React, and connect the workflow behind them with Python and GitHub Actions. Even in small projects, I like defining the problem, designing the structure, and carrying the work through implementation and iteration to build better learning systems and developer workflows.",
   },
   email: "dlsfuf0316@gmail.com",
   location: {
