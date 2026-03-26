@@ -106,37 +106,39 @@ export function LanguageToggle({ locale, hidden = false }: LanguageToggleProps) 
       className={isVisible ? "floatingLanguageDock" : "floatingLanguageDock isHidden"}
       aria-label={t("languageLabel")}
     >
-      {showHint ? <div className="floatingLanguageHint">English version is here</div> : null}
-      <div className={open ? "floatingLanguageRail isOpen" : "floatingLanguageRail"}>
+      <div className={open ? "floatingLanguageControl isOpen" : "floatingLanguageControl"}>
+        {showHint ? <div className="floatingLanguageHint">English version is here</div> : null}
         <button
           type="button"
-          className={locale === "ko" ? "floatingLanguageOption active" : "floatingLanguageOption"}
-          aria-pressed={locale === "ko"}
-          onClick={() => changeLanguage("ko")}
+          className={open ? "floatingLanguageTrigger isOpen" : "floatingLanguageTrigger"}
+          aria-expanded={open}
+          aria-label={t("languageLabel")}
+          onClick={() => {
+            dismissHint();
+            setOpen((current) => !current);
+          }}
         >
-          KO
+          {locale.toUpperCase()}
         </button>
-        <button
-          type="button"
-          className={locale === "en" ? "floatingLanguageOption active" : "floatingLanguageOption"}
-          aria-pressed={locale === "en"}
-          onClick={() => changeLanguage("en")}
-        >
-          EN
-        </button>
+        <div className={open ? "floatingLanguageRail isOpen" : "floatingLanguageRail"}>
+          <button
+            type="button"
+            className={locale === "ko" ? "floatingLanguageOption active" : "floatingLanguageOption"}
+            aria-pressed={locale === "ko"}
+            onClick={() => changeLanguage("ko")}
+          >
+            KO
+          </button>
+          <button
+            type="button"
+            className={locale === "en" ? "floatingLanguageOption active" : "floatingLanguageOption"}
+            aria-pressed={locale === "en"}
+            onClick={() => changeLanguage("en")}
+          >
+            EN
+          </button>
+        </div>
       </div>
-      <button
-        type="button"
-        className={open ? "floatingLanguageTrigger isOpen" : "floatingLanguageTrigger"}
-        aria-expanded={open}
-        aria-label={t("languageLabel")}
-        onClick={() => {
-          dismissHint();
-          setOpen((current) => !current);
-        }}
-      >
-        {locale.toUpperCase()}
-      </button>
     </div>
   );
 }

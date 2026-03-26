@@ -114,16 +114,41 @@ img {
   bottom: clamp(1rem, 2vw, 1.6rem);
   z-index: 35;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
+  justify-content: flex-end;
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.24s ease, transform 0.24s ease;
 }
 
-.floatingLanguageHint {
+.floatingLanguageControl {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 3.3rem;
+  height: 3.3rem;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 999px;
+  background: rgba(248, 250, 252, 0.88);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.12);
+  overflow: hidden;
+  transition:
+    width 0.28s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.floatingLanguageControl.isOpen {
+  width: 9.2rem;
+  background: rgba(248, 250, 252, 0.94);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.14);
+}
+
+.floatingLanguageHint {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.5rem);
   padding: 0.6rem 0.8rem;
   border: 1px solid rgba(148, 163, 184, 0.18);
   border-radius: 16px;
@@ -140,7 +165,7 @@ img {
 .floatingLanguageHint::after {
   content: "";
   position: absolute;
-  right: 1rem;
+  right: 1.15rem;
   top: 100%;
   width: 10px;
   height: 10px;
@@ -160,21 +185,21 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  padding: 0.32rem;
-  border: 1px solid rgba(148, 163, 184, 0.28);
+  padding: 0 0.32rem 0 0.1rem;
+  margin-right: 0.18rem;
   border-radius: 999px;
-  background: rgba(248, 250, 252, 0.84);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
   opacity: 0;
-  transform: translateX(12px) scale(0.98);
+  transform: translateX(8px);
+  max-width: 0;
   pointer-events: none;
-  transition: opacity 0.22s ease, transform 0.22s ease;
+  overflow: hidden;
+  transition: opacity 0.22s ease, transform 0.22s ease, max-width 0.28s ease;
 }
 
 .floatingLanguageRail.isOpen {
   opacity: 1;
-  transform: translateX(0) scale(1);
+  transform: translateX(0);
+  max-width: 5.6rem;
   pointer-events: auto;
 }
 
@@ -198,12 +223,11 @@ img {
 .floatingLanguageTrigger {
   width: 3.3rem;
   height: 3.3rem;
-  border: 1px solid rgba(148, 163, 184, 0.28);
+  flex: 0 0 3.3rem;
+  border: 0;
   border-radius: 999px;
-  background: rgba(248, 250, 252, 0.88);
+  background: transparent;
   color: var(--ink-soft);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.12);
   font-size: 0.92rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -213,13 +237,13 @@ img {
 
 .floatingLanguageTrigger:hover,
 .floatingLanguageTrigger:focus-visible {
-  transform: translateY(-1px);
-  background: rgba(239, 246, 255, 0.96);
+  transform: scale(1.02);
+  background: rgba(239, 246, 255, 0.72);
   color: var(--ink-strong);
 }
 
 .floatingLanguageTrigger.isOpen {
-  background: rgba(219, 234, 254, 0.92);
+  background: rgba(219, 234, 254, 0.82);
   color: var(--ink-strong);
 }
 
@@ -998,6 +1022,15 @@ img {
     bottom: 0.85rem;
   }
 
+  .floatingLanguageControl {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .floatingLanguageControl.isOpen {
+    width: 8.4rem;
+  }
+
   .floatingLanguageOption {
     min-width: 2.75rem;
     padding-inline: 0.8rem;
@@ -1006,6 +1039,7 @@ img {
   .floatingLanguageTrigger {
     width: 3rem;
     height: 3rem;
+    flex-basis: 3rem;
   }
 
   .stackSection {
