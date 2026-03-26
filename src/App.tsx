@@ -9,7 +9,7 @@ import { LanguageToggle } from "./components/LanguageToggle";
 import { Portfolio } from "./components/Portfolio";
 import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
-import { getLocale, profile } from "./data/siteContent";
+import { getLocale } from "./data/siteContent";
 import type { Locale } from "./types";
 
 function App() {
