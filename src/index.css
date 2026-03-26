@@ -289,6 +289,8 @@ img {
   font-weight: 300;
   letter-spacing: -0.05em;
   line-height: 0.98;
+  max-width: 100%;
+  text-wrap: balance;
 }
 
 .heroHeadline {
@@ -971,6 +973,7 @@ img {
   .pageContent {
     width: min(100% - 1.2rem, 1120px);
     padding-top: 2rem;
+    padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px));
   }
 
   .topBar {
@@ -991,7 +994,8 @@ img {
   }
 
   .heroTitle {
-    font-size: clamp(3rem, 16vw, 4.4rem);
+    font-size: clamp(2.35rem, 13vw, 3.6rem);
+    line-height: 1;
   }
 
   .heroHeadline {
@@ -1023,7 +1027,7 @@ img {
 
   .floatingLanguageDock {
     right: 0.85rem;
-    bottom: 0.85rem;
+    bottom: calc(0.85rem + env(safe-area-inset-bottom, 0px));
   }
 
   .floatingLanguageControl {
@@ -1043,8 +1047,54 @@ img {
     inset: 0;
   }
 
+  .floatingLanguageHint {
+    right: 0;
+    transform: none;
+    max-width: min(220px, calc(100vw - 2rem));
+    white-space: normal;
+  }
+
+  .floatingLanguageHint::after {
+    right: 1rem;
+    transform: translateY(-5px) rotate(45deg);
+  }
+
   .stackSection {
     padding: 1.3rem 1.1rem;
+  }
+
+  .courseGroupGrid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .courseGroupCard {
+    padding: 0.9rem;
+  }
+
+  .courseGroupCard h4 {
+    font-size: 0.9rem;
+  }
+
+  .coursePillList {
+    gap: 0.5rem;
+  }
+
+  .coursePill {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.55rem 0.7rem 0.55rem 0.8rem;
+  }
+
+  .coursePill span:first-child {
+    min-width: 0;
+    padding-right: 0.5rem;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+
+  .courseGrade {
+    flex: 0 0 auto;
   }
 
   .stackLineHeader {
