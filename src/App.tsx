@@ -89,16 +89,6 @@ function App() {
 
         <main className={isExporting ? "pageContent exportMode" : "pageContent"} id="content" ref={cvRef}>
           <Hero locale={locale} />
-          <section className="sectionIntro">
-            <p>{t("sectionLead")}</p>
-            <div className="socialRow">
-              {profile.socialLinks.map((link) => (
-                <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </section>
           <Skills locale={locale} />
           <Portfolio locale={locale} />
           <Projects locale={locale} />
