@@ -203,100 +203,100 @@ export const portfolioItems: PortfolioItem[] = [
 
 export const projectItems: ProjectItem[] = [
   {
-    title: "Active Recall Quiz",
+    title: "ft_irc",
     role: {
-      ko: "제품 구조 설계, 프론트엔드/백엔드 연결, 학습 흐름 구현",
-      en: "Product structure design, frontend/backend integration, and learning flow implementation",
+      ko: "서버 구조 설계와 이벤트 기반 I/O 흐름 이해",
+      en: "Server structure design and event-driven I/O flow understanding",
     },
     problem: {
-      ko: "markdown 노트를 정리해도 실제 시험처럼 문제를 풀고 복습하는 경험까지 이어지지 않았고, 노트 원본과 학습 앱의 책임도 한 저장소에 섞이기 쉬웠습니다.",
-      en: "Markdown notes alone did not provide a full exam-and-review experience, and note ownership could easily get mixed with the learning app.",
+      ko: "IRC 서버는 여러 클라이언트 연결과 채널 상태를 동시에 다뤄야 해서, 전체 구조를 먼저 잡지 않으면 기능이 추가될수록 흐름이 쉽게 복잡해지는 문제가 있었습니다.",
+      en: "An IRC server has to manage multiple clients and channel states at once, so the architecture could quickly become tangled without a clear structure from the start.",
     },
     approach: {
-      ko: "`active-recall-notes`에서 넘어온 스냅샷을 SQLite에 적재하고, FastAPI와 Next.js를 연결해 문제 생성, 시험 응시, 채점, 오답 복습 흐름을 하나의 학습 앱으로 구성했습니다.",
-      en: "I loaded snapshots from `active-recall-notes` into SQLite and connected FastAPI with Next.js to build quiz generation, exam taking, grading, and wrong-answer review into one learning app.",
+      ko: "서버의 큰 구조를 먼저 나누어 보고, 여러 소켓 이벤트를 어떻게 감시하고 처리하는지 멀티 `kqueue()` 흐름을 중심으로 이해하며 이벤트 기반 서버 동작 방식을 정리했습니다.",
+      en: "I focused on structuring the server first, then studied how multiple socket events are observed and processed through multi-`kqueue()` flow to understand event-driven server behavior.",
     },
     summary: {
-      ko: "외부 노트 저장소를 데이터 공급원으로 두고, 학습용 실행 계층을 별도 앱으로 분리한 반복 회상 학습 시스템입니다.",
-      en: "An active-recall learning system that separates the execution layer from the external note repository used as its content source.",
+      ko: "여러 사용자 연결을 처리하는 IRC 서버를 구현하며 네트워크 서버 구조와 이벤트 기반 입출력 방식을 학습한 프로젝트입니다.",
+      en: "A project where I learned network server architecture and event-driven I/O while implementing an IRC server that handles multiple user connections.",
     },
     highlights: {
       ko: [
-        "노트 저장소와 학습 앱 저장소의 책임을 분리한 구조 설계",
-        "시험 생성, 제출, 채점, 오답노트까지 이어지는 사용자 흐름 구현",
-        "FastAPI API와 Next.js 화면을 연결한 end-to-end 학습 경험 구성",
+        "기능 추가 전 전체 서버 구조를 먼저 나누어 설계",
+        "멀티 `kqueue()` 기반 이벤트 감시 흐름 이해",
+        "클라이언트 연결과 채널 상태를 다루는 서버 동작 방식 학습",
       ],
       en: [
-        "Separated responsibilities between the note repository and the learning app repository",
-        "Built a user flow that connects exam generation, submission, grading, and wrong-note review",
-        "Delivered an end-to-end study experience across FastAPI APIs and a Next.js frontend",
+        "Designed the overall server structure before expanding features",
+        "Studied event monitoring flow based on multi-`kqueue()`",
+        "Learned how the server handles client connections and channel state",
       ],
     },
-    githubUrl: "https://github.com/InryeolChoi/active-recall-quiz",
+    githubUrl: "https://github.com/ByteTalkers/FT_IRC",
   },
   {
-    title: "Active Recall Notes",
+    title: "minishell",
     role: {
-      ko: "콘텐츠 구조 설계 및 학습 자료 운영",
-      en: "Content structure design and study material operations",
+      ko: "파싱 구조 학습과 파이프 실행 흐름 구현",
+      en: "Parsing structure study and pipe execution flow implementation",
     },
     problem: {
-      ko: "정처기 실기처럼 서술형 답안을 요구하는 학습에서는 단순 요약 노트만으로는 반복 회상과 문제화에 바로 연결되기 어려웠습니다.",
-      en: "For descriptive-answer study like the practical engineer exam, simple summary notes were not enough to support repeated recall and question generation.",
+      ko: "쉘은 입력을 단순히 실행하는 것이 아니라, 명령어를 해석하고 파이프와 리다이렉션 같은 규칙에 맞게 흐름을 나눠 처리해야 해서 파싱 구조를 먼저 이해하는 것이 중요했습니다.",
+      en: "A shell does more than execute input; it has to parse commands and handle rules like pipes and redirections, so understanding the parsing structure was essential first.",
     },
     approach: {
-      ko: "개념을 `unit_*/*.md` 구조로 정리하고, 학습 앱으로 전달하기 쉬운 작성 원칙과 스냅샷 동기화 흐름을 기준으로 노트 저장소를 설계했습니다.",
-      en: "I organized concepts in a `unit_*/*.md` structure and designed the repository around authoring rules and snapshot sync flows that feed the learning app cleanly.",
+      ko: "명령어가 어떤 단계로 파싱되어 실행 구조로 이어지는지 공부하고, 그 위에서 여러 명령을 연결하는 pipe 흐름을 직접 구성하면서 쉘의 실행 과정을 이해했습니다.",
+      en: "I studied how commands are parsed into executable structures and built the pipe flow that connects multiple commands, which helped me understand how a shell executes user input.",
     },
     summary: {
-      ko: "이론 정리를 끝내는 저장소가 아니라, 반복 회상 학습에 재사용할 수 있는 콘텐츠 자산을 만드는 노트 프로젝트입니다.",
-      en: "A note project focused on turning theory writeups into reusable content assets for active recall learning.",
+      ko: "쉘이 입력을 해석하고 여러 명령을 연결해 실행하는 과정을 직접 구현하며 파싱과 프로세스 흐름을 익힌 프로젝트입니다.",
+      en: "A project where I implemented how a shell interprets input and connects commands, learning parsing and process flow along the way.",
     },
     highlights: {
       ko: [
-        "unit 단위 markdown 구조와 파일 규칙 정리",
-        "학습 앱으로 이어지는 콘텐츠 공급 저장소 역할 분리",
-        "자동 동기화와 문제 생성에 맞는 작성 원칙 수립",
+        "입력을 실행 가능한 구조로 바꾸는 파싱 흐름 학습",
+        "여러 명령을 연결하는 pipe 구조 구현",
+        "쉘 명령 실행 과정과 프로세스 연결 방식 이해",
       ],
       en: [
-        "Defined a unit-based markdown structure and file conventions",
-        "Separated the repository as the dedicated content source for the learning app",
-        "Established authoring rules that fit automated sync and question generation",
+        "Learned the parsing flow that turns input into executable structures",
+        "Implemented the pipe structure that connects multiple commands",
+        "Understood shell command execution and process chaining",
       ],
     },
-    githubUrl: "https://github.com/InryeolChoi/active-recall-notes",
+    githubUrl: "https://github.com/berryyogurt-minishell/42_minishell",
   },
   {
-    title: "Database Playground",
+    title: "transcendence",
     role: {
-      ko: "DB 학습 및 실습 환경 구성",
-      en: "Database learning and practice environment setup",
+      ko: "백엔드 구축, 인증 흐름 구현, 인프라 환경 구성",
+      en: "Backend development, authentication flow implementation, and infrastructure setup",
     },
     problem: {
-      ko: "데이터베이스 개념은 책으로만 보면 추상적으로 남기 쉬워서, 직접 만들고 지우며 익힐 수 있는 반복 가능한 실습 환경이 필요했습니다.",
-      en: "Database concepts can stay abstract when learned only from books, so I needed a repeatable environment for hands-on practice.",
+      ko: "실제 서비스 형태의 웹 프로젝트에서는 API 서버, 로그인, 보안, 데이터베이스, 배포용 실행 환경이 함께 맞물려야 해서 백엔드 전반을 통합적으로 설계할 필요가 있었습니다.",
+      en: "A service-style web project required the API server, authentication, security, database, and runtime environment to work together, so the backend had to be designed as an integrated system.",
     },
     approach: {
-      ko: "Docker 기반 PostgreSQL 실행 환경을 만들고, 볼륨 유지 방식과 기본 SQL 예제를 함께 정리해 컨테이너 실행부터 CRUD 실습까지 한 흐름으로 다룰 수 있게 했습니다.",
-      en: "I built a Docker-based PostgreSQL environment and documented volume persistence with basic SQL examples so the full flow from container startup to CRUD practice could be repeated easily.",
+      ko: "Django와 Django REST Framework로 백엔드를 구축하고, 42 OAuth 로그인과 JWT 발급 흐름을 연결했습니다. 여기에 이메일 기반 2차 인증 링크를 붙여 인증 단계를 강화했고, PostgreSQL과 Docker Compose로 실행 환경까지 함께 구성했습니다.",
+      en: "I built the backend with Django and Django REST Framework, connected 42 OAuth login with JWT issuance, added email-based two-factor verification links, and set up the runtime environment with PostgreSQL and Docker Compose.",
     },
     summary: {
-      ko: "PostgreSQL와 Docker를 이용해 SQL과 데이터베이스 기초를 직접 실행하며 익히기 위한 실습 저장소입니다.",
-      en: "A hands-on practice repository for learning SQL and database fundamentals with PostgreSQL and Docker.",
+      ko: "실제 웹 서비스 흐름을 기준으로 인증과 데이터 저장, 실행 환경까지 포함한 백엔드를 구축해본 프로젝트입니다.",
+      en: "A project where I built a backend for a real web-service flow, covering authentication, persistence, and runtime environment setup.",
     },
     highlights: {
       ko: [
-        "컨테이너 기반 PostgreSQL 실행 환경 구성",
-        "볼륨 기반 데이터 유지 방식과 환경 재생성 흐름 정리",
-        "기본 CRUD와 스키마 실습을 바로 따라할 수 있는 예제 구성",
+        "Django + Django REST Framework 기반 백엔드 구축",
+        "42 OAuth 로그인, JWT 발급, 이메일 기반 2차 인증 링크 구현",
+        "PostgreSQL와 Docker Compose를 이용한 개발 환경 구성",
       ],
       en: [
-        "Set up a container-based PostgreSQL environment",
-        "Documented persistent volume handling and environment reset flow",
-        "Prepared example steps for immediate CRUD and schema practice",
+        "Built the backend with Django and Django REST Framework",
+        "Implemented 42 OAuth login, JWT issuance, and email-based two-factor verification links",
+        "Set up the development environment with PostgreSQL and Docker Compose",
       ],
     },
-    githubUrl: "https://github.com/InryeolChoi/database-playground",
+    githubUrl: "https://github.com/InryeolChoi/transcendence",
   },
 ];
 
