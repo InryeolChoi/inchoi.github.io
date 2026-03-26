@@ -10,23 +10,10 @@ import type {
 import type { Locale, ProjectItem } from "../types";
 
 const text = (value: string) => ({ text: value });
-const link = (value: string, href: string) => ({ text: value, href });
 const plainDescription = (ko: string, en: string): LocalizedInlineText => ({
   ko: [text(ko)],
   en: [text(en)],
 });
-
-const skillLinks = {
-  algorithmPy: "https://github.com/InryeolChoi/algorithm_py",
-  cpp101: "https://github.com/InryeolChoi/cpp_101",
-  ebayAnalysis: "https://github.com/InryeolChoi/ebay_analysis",
-  ftPrintf: "https://github.com/InryeolChoi/ft_printf",
-  getNextLine: "https://github.com/InryeolChoi/_get_NextLine",
-  javaModern: "https://github.com/InryeolChoi/Java_Modern",
-  philosopher: "https://github.com/InryeolChoi/_philosopher",
-  pipex: "https://github.com/InryeolChoi/_pipex",
-  superApp: "https://github.com/InryeolChoi/superApp",
-} as const;
 
 export const profile = {
   name: "Inryeol Choi",
@@ -36,8 +23,8 @@ export const profile = {
     en: "A developer who structures knowledge and turns it into learning experiences",
   },
   intro: {
-    ko: "늘 우직하게 도전하고, 늘 갈망하며 성장하려는 개발자 최인렬입니다. 학부 수업을 들으며 프로그래밍을 처음 접했고, 처음에는 빅데이터를 통해 혁신적인 서비스를 개발해 보고 싶다는 마음으로 공부를 시작했습니다. 그런데 데이터 분석을 공부하다 보니, 데이터를 해석하는 일 자체보다 데이터를 어떻게 저장하고 관리하고 처리할지 구조를 설계하는 일에 더 큰 흥미를 느끼게 되었습니다. 그 경험을 계기로 자연스럽게 컴퓨터공학 전반에 관심을 가지게 되었고, 지금은 백엔드 프로그래밍, 데이터베이스, 클라우드 같은 분야를 중심으로 꾸준히 공부하고 있습니다. 멈추지 않고 끊임없이 나아가며, 기술로 더 단단한 서비스를 만드는 개발자가 되고 싶습니다.",
-    en: "I am a developer who keeps moving forward with steady curiosity. After being introduced to programming through university courses, I became more interested in how data is managed and processed than in data analysis itself. That naturally led me deeper into computer science, and I am now continuously studying backend programming, databases, and cloud technologies.",
+    ko: "늘 우직하게 도전하고, 늘 갈망하며 성장하려는 개발자 최인렬입니다. 학부 수업을 들으며 프로그래밍을 처음 접했고, 알고리즘 공부를 시작으로 42서울에 들어가며 개발을 더 깊이 있게 공부했습니다.\n\n처음에는 빅데이터를 통해 혁신적인 서비스를 개발해 보고 싶다는 마음으로 공부를 시작했지만, 데이터 분석을 공부할수록 데이터를 해석하는 일 자체보다 데이터를 어떻게 저장하고 관리하고 처리할지 구조를 설계하는 일에 더 큰 흥미를 느끼게 되었습니다.\n\n그 경험을 계기로 자연스럽게 컴퓨터공학 전반에 관심을 가지게 되었고, 지금은 백엔드 프로그래밍, 데이터베이스, 클라우드 같은 분야를 중심으로 꾸준히 공부하고 있습니다. 멈추지 않고 끊임없이 나아가며, 기술로 더 단단한 서비스를 만드는 개발자가 되고 싶습니다.",
+    en: "I am a developer who keeps moving forward with steady curiosity. I first encountered programming through university courses, then began studying more seriously through algorithms and continued that journey at 42 Seoul.\n\nAt first, I wanted to build innovative services through big data, but the more I studied data analysis, the more I became interested in designing how data is stored, managed, and processed.\n\nThat shift naturally led me deeper into computer science as a whole, and I am now continuously studying backend programming, databases, and cloud technologies. I want to keep growing and build stronger services through technology.",
   },
   email: "dlsfuf0316@gmail.com",
   location: {
@@ -77,45 +64,41 @@ export const skillCategories: SkillCategory[] = [
       {
         name: "Java",
         iconKey: "java",
-        description: {
-          ko: [
-            text("학교 수업에서 Java로 객체지향의 기본기를 잡은 뒤 "),
-            link("Java_Modern", skillLinks.javaModern),
-            text(
-              " 저장소에서 <모던 자바 인 액션> 흐름을 따라가며 람다, 스트림, Optional, Fork/Join, 비동기 API 같은 주제를 예제 중심으로 정리했습니다. 문법만 암기하기보다 컬렉션 처리 방식이 어떻게 달라지는지, 병렬 처리와 비동기 흐름이 코드 구조를 어떻게 바꾸는지까지 비교하며 모던 자바 스타일을 익혔습니다.",
-            ),
-          ],
-          en: [
-            text("After learning Java fundamentals in class, I used "),
-            link("Java_Modern", skillLinks.javaModern),
-            text(
-              " to study modern Java in depth through examples covering lambdas, streams, Optional, Fork/Join, and asynchronous APIs. I focused on how modern Java changes collection handling and program structure rather than only memorizing syntax.",
-            ),
-          ],
-        },
+        description: plainDescription(
+          "학교 수업에서 Java로 객체지향의 기본기를 잡은 뒤, <모던 자바 인 액션>을 따라가며 람다, 스트림, Optional, Fork/Join, 비동기 API 같은 주제를 예제 중심으로 정리했습니다. 단순히 문법을 외우는 데서 멈추지 않고, 반복문 중심 코드가 스트림 기반 코드로 바뀌면 가독성과 책임 분리가 어떻게 달라지는지, null 처리와 비동기 흐름을 어떤 방식으로 더 명확하게 표현할 수 있는지를 계속 비교해보며 모던 자바 스타일을 익혔습니다.",
+          "After building my Java fundamentals in class, I studied lambdas, streams, Optional, Fork/Join, and asynchronous APIs through example-driven practice with Modern Java in Action. I focused less on memorizing syntax and more on how Java changes code structure, especially in readability, responsibility separation, null handling, and asynchronous flow design.",
+        ),
       },
       {
         name: "Spring",
         iconKey: "spring",
         description: plainDescription(
-          "백엔드 애플리케이션을 계층적으로 나누는 방식, 의존성 주입, 설정 분리, 웹 애플리케이션의 요청 처리 흐름을 이해하기 위해 Spring 학습을 이어가고 있습니다.",
-          "I am studying Spring to understand layered backend structure, dependency injection, configuration, and request handling in web applications.",
+          "Spring을 공부하면서 가장 많이 고민한 지점은 기능을 구현하는 것보다 백엔드 구조를 어디까지 프레임워크의 흐름에 맡기고, 어디까지 직접 의도를 드러내며 설계할 것인가였습니다. 컨트롤러, 서비스, 리포지토리로 책임을 나누는 방식, 의존성 주입과 설정 분리, 요청이 들어와 응답으로 나가기까지의 흐름을 따라가며, 코드가 커질수록 일관된 구조와 명확한 역할 분담이 왜 중요한지 더 실감하게 되었습니다.",
+          "While studying Spring, the main question I kept returning to was not just how to build features, but how much of the backend structure should rely on the framework and how much should be expressed explicitly through design. By working through controller-service-repository separation, dependency injection, configuration, and request flow, I came to appreciate why consistent structure and clear role boundaries matter more as an application grows.",
         ),
       },
       {
         name: "Docker",
         iconKey: "docker",
         description: plainDescription(
-          "데이터베이스 실습과 웹 프로젝트 환경을 컨테이너로 분리해 보면서 로컬 환경을 반복 가능하게 맞추고, 서비스별 실행 구성을 분리하는 흐름을 익혔습니다.",
-          "I used Docker to separate databases and app environments, making local setups reproducible and easier to manage by service.",
+          "Docker를 사용하면서 가장 크게 느낀 점은 '내 로컬에서는 되는데 다른 환경에서는 안 되는 문제'를 줄이려면 실행 환경 자체를 함께 관리해야 한다는 것이었습니다. 데이터베이스 실습과 웹 프로젝트에서 컨테이너를 분리해 보며 이미지, 볼륨, 네트워크, 환경 변수 구성을 반복해서 맞춰봤고, 무엇을 컨테이너로 감싸고 무엇은 로컬에 두는 것이 개발 흐름상 더 단순한지 계속 고민했습니다. 그 과정을 통해 Docker를 단순한 실행 도구가 아니라 개발 환경을 재현 가능하게 만드는 설계 도구로 보게 되었습니다.",
+          "What stood out to me most while using Docker was that reducing environment-specific issues requires managing the runtime itself, not just the code. As I separated databases and app environments into containers, I repeatedly worked through images, volumes, networks, and environment variables, and thought carefully about what should be containerized versus kept local. That made me see Docker not just as a way to run services, but as a tool for making development environments reproducible by design.",
         ),
       },
       {
         name: "Linux",
         iconKey: "linux",
         description: plainDescription(
-          "셸 환경에서 파일과 프로세스를 다루고, 시스템 콜과 프로세스 실행 흐름을 이해하는 과제를 수행하면서 리눅스 기반 개발 환경에 자연스럽게 익숙해졌습니다.",
-          "I became comfortable with Linux-based development by working with shells, processes, and system-call-oriented assignments.",
+          "Linux 환경에서는 단순히 명령어를 쓰는 수준을 넘어서 파일 권한, 프로세스, 파이프, 시그널, 표준 입출력 같은 운영체제의 기본 추상화를 몸으로 익히게 되었습니다. 셸 환경과 시스템 콜 중심 과제를 수행하면서 프로그램이 실행되고 연결되는 흐름을 더 낮은 수준에서 이해하게 되었고, 개발 도구를 사용할 때도 결국 그 아래에서 어떤 프로세스와 자원이 움직이는지를 의식하게 되었습니다. 이런 경험 덕분에 리눅스 기반 개발 환경을 훨씬 덜 막연하게 다루게 되었습니다.",
+          "Working in Linux pushed me beyond basic command usage and into the operating system ideas underneath, such as permissions, processes, pipes, signals, and standard I/O. Through shell-oriented and system-call-heavy assignments, I learned to understand programs at the level of execution flow and resource handling, which also changed how I think about development tools running on top of the OS. That experience made Linux feel much less abstract and much more intuitive as a development environment.",
+        ),
+      },
+      {
+        name: "GitHub Actions",
+        iconKey: "githubactions",
+        description: plainDescription(
+          "GitHub Actions는 단순히 배포 버튼을 대신 눌러주는 도구라기보다, 반복 작업을 어떤 조건에서 자동화해야 팀과 개인의 흐름이 가장 덜 끊기는지 고민하게 만든 도구였습니다. 노트 동기화, 정적 사이트 배포, 체크 자동화 같은 작업을 구성하면서 트리거 시점, 실패 시 확인 방식, 작업 단위 분리를 직접 다뤄봤고, 그 과정에서 자동화는 편의 기능이 아니라 작업 품질과 일관성을 지키는 장치라는 점을 분명히 느꼈습니다.",
+          "GitHub Actions felt less like a button replacement for deployment and more like a tool that made me think carefully about which repetitive tasks should be automated and under what conditions. While setting up note sync, static site deployment, and routine checks, I worked through trigger timing, failure visibility, and job separation, and came to see automation as a way to protect consistency and workflow quality rather than just save clicks.",
         ),
       },
     ] satisfies SkillItem[],
@@ -129,78 +112,26 @@ export const skillCategories: SkillCategory[] = [
       {
         name: "C",
         iconKey: "c",
-        description: {
-          ko: [
-            text("단순히 문법만 익힌 것이 아니라 "),
-            link("ft_printf", skillLinks.ftPrintf),
-            text(" 에서 가변 인자와 포맷 문자열 처리를 직접 구현하며 메모리와 문자열 조작의 기본기를 다졌고, "),
-            link("get_next_line", skillLinks.getNextLine),
-            text(" 에서는 `read()` 기반 버퍼 관리와 파일 디스크립터별 상태 처리를 통해 입력 흐름을 이해했습니다. 이어 "),
-            link("pipex", skillLinks.pipex),
-            text(" 에서 `pipe`, `fork`, `dup2`, `execve`를 연결해 프로세스 간 파이프라인을 구현하며 시스템 콜과 멀티 프로세싱을 익혔고, "),
-            link("philosopher", skillLinks.philosopher),
-            text(" 에서는 스레드와 뮤텍스를 다루며 동기화 문제를 직접 풀어보았습니다. 이런 과정을 통해 메모리 관리, 파일 디스크립터, 시스템 콜, 파이프, 멀티 프로세싱, 멀티 스레딩을 실제 구현 맥락에서 이해하게 되었습니다."),
-          ],
-          en: [
-            text("I learned C through implementation-heavy projects rather than simple syntax practice. In "),
-            link("ft_printf", skillLinks.ftPrintf),
-            text(" I handled variadic arguments and format parsing, and in "),
-            link("get_next_line", skillLinks.getNextLine),
-            text(" I managed buffered input and per-file-descriptor state around `read()`. Then "),
-            link("pipex", skillLinks.pipex),
-            text(" helped me connect `pipe`, `fork`, `dup2`, and `execve` to build a shell-like pipeline, while "),
-            link("philosopher", skillLinks.philosopher),
-            text(" made me work through thread synchronization with mutexes. Through these projects, I built a practical understanding of memory management, file descriptors, system calls, pipes, multiprocessing, and multithreading."),
-          ],
-        },
+        description: plainDescription(
+          "C는 문법 자체보다 직접 구현하면서 훨씬 많이 배운 언어였습니다. 가변 인자와 포맷 문자열 처리, `read()` 기반 버퍼 관리, `pipe`·`fork`·`dup2`·`execve`를 이용한 프로세스 연결, 스레드와 뮤텍스를 통한 동기화 문제까지 차례로 다뤄보면서 메모리 관리, 파일 디스크립터, 시스템 콜, 멀티프로세싱, 멀티스레딩을 구현 맥락에서 이해하게 되었습니다. 특히 작은 실수 하나가 바로 버그로 이어지는 경험을 반복하면서, 저수준에서 정확하게 사고하는 습관이 얼마나 중요한지 몸으로 배웠습니다.",
+          "I learned C far more through implementation than through syntax alone. By working through variadic formatting, buffered input around `read()`, process pipelines with `pipe`, `fork`, `dup2`, and `execve`, and synchronization with threads and mutexes, I developed a practical understanding of memory management, file descriptors, system calls, multiprocessing, and multithreading. Repeatedly seeing how small mistakes turn directly into bugs taught me the value of careful low-level thinking.",
+        ),
       },
       {
         name: "C++",
         iconKey: "cplusplus",
-        description: {
-          ko: [
-            link("cpp_101", skillLinks.cpp101),
-            text(
-              " 저장소를 중심으로 여러 모듈을 따라가며 클래스 설계, 생성자와 소멸자, 레퍼런스, OCCF, 상속, 다형성, 추상 클래스, 템플릿, STL, 타입 변환 같은 주제를 단계적으로 공부했습니다. 특히 C++의 복사 제어와 자원 관리 방식이 Java나 Python 같은 다른 OOP 언어와 어떻게 다른지, 또 객체 추상화나 인터페이스 설계라는 공통점은 무엇인지 비교해보며 언어별 객체지향 감각을 넓혔습니다.",
-            ),
-          ],
-          en: [
-            text("I studied C++ through the step-by-step exercises in "),
-            link("cpp_101", skillLinks.cpp101),
-            text(
-              ", covering classes, constructors and destructors, references, the Orthodox Canonical Class Form, inheritance, polymorphism, abstract classes, templates, STL, and type conversion. I paid particular attention to how C++ differs from Java and Python in copy control, ownership, and object design while also comparing their shared OOP ideas.",
-            ),
-          ],
-        },
+        description: plainDescription(
+          "C++를 공부하면서는 클래스 설계, 생성자와 소멸자, 레퍼런스, OCCF, 상속, 다형성, 추상 클래스, 템플릿, STL, 타입 변환을 단계적으로 따라가며 객체지향을 더 넓게 바라보게 되었습니다. 특히 C++는 복사 제어와 자원 관리가 언어 차원에서 훨씬 직접적으로 드러나기 때문에, Java나 Python에서 익힌 객체지향과 무엇이 같고 무엇이 다른지를 계속 비교하게 만들었습니다. 덕분에 인터페이스 설계와 추상화뿐 아니라 소유권과 생명주기까지 함께 생각하는 습관을 얻게 되었습니다.",
+          "Studying C++ broadened the way I think about object-oriented design through classes, constructors and destructors, references, the Orthodox Canonical Class Form, inheritance, polymorphism, abstract classes, templates, STL, and type conversion. Because C++ makes copy control and resource management much more explicit, it pushed me to compare what is shared with Java and Python and what is fundamentally different. That gave me a stronger sense of abstraction, ownership, and object lifetime together.",
+        ),
       },
       {
         name: "Python",
         iconKey: "python",
-        description: {
-          ko: [
-            link("algorithm_py", skillLinks.algorithmPy),
-            text(" 에서 알고리즘 문제를 꾸준히 풀며 빠르게 로직을 구현하고 자료구조를 다루는 감각을 길렀고, "),
-            link("superApp", skillLinks.superApp),
-            text(
-              " 에서는 Django 기반 백엔드를 직접 구성하며 `manage.py`, 앱 분리, 모델, URL, 뷰, 직렬화, 채팅과 게시판 기능 같은 웹 서비스 기본 구조를 익혔습니다. 또한 "),
-            link("ebay_analysis", skillLinks.ebayAnalysis),
-            text(
-              " 에서는 노트북 환경과 데이터 파일을 다루며 분석 과정을 정리해보았습니다. 이렇게 Python을 알고리즘 풀이, 백엔드 기초 학습, 데이터 분석까지 다양한 용도로 사용해보면서 빠르게 실험하고 구조를 검증하는 언어로 활용해왔습니다.",
-            ),
-          ],
-          en: [
-            text("I have used Python across several different contexts. In "),
-            link("algorithm_py", skillLinks.algorithmPy),
-            text(" I practiced algorithms regularly to build fast implementation habits, while "),
-            link("superApp", skillLinks.superApp),
-            text(
-              " let me learn backend fundamentals with Django through app structure, models, URLs, views, serializers, and service features such as boards and chat. I also used "),
-            link("ebay_analysis", skillLinks.ebayAnalysis),
-            text(
-              " for notebook-based data analysis. That combination made Python a practical language for me across problem solving, backend learning, and analysis work.",
-            ),
-          ],
-        },
+        description: plainDescription(
+          "Python은 알고리즘 풀이, 백엔드 학습, 데이터 분석까지 가장 폭넓게 활용해본 언어입니다. 문제 풀이에서는 빠르게 로직을 세우고 자료구조를 다루는 감각을 길렀고, Django 기반 프로젝트를 구성할 때는 앱 분리, 모델, URL, 뷰, 직렬화 같은 웹 서비스 기본 구조를 익히는 데 활용했습니다. 또 노트북 환경에서 데이터를 다루며 실험적인 분석 흐름도 경험해보았습니다. 이런 과정을 통해 Python은 아이디어를 빠르게 검증하기에 강하지만, 프로젝트가 커질수록 구조를 의식하며 써야 한다는 점도 함께 느끼게 되었습니다.",
+          "Python is the language I have used across the widest range of contexts, including algorithm practice, backend learning, and data analysis. It helped me build fast implementation habits in problem solving, while also supporting backend fundamentals such as app structure, models, URLs, views, and serialization in Django-based work. I also used it in notebook-driven analysis. That range made Python feel especially strong for quick experimentation, while also reminding me that larger projects still require deliberate structure and discipline.",
+        ),
       },
       {
         name: "Django",
@@ -208,22 +139,6 @@ export const skillCategories: SkillCategory[] = [
         description: plainDescription(
           "Django로 프로젝트를 구성하면서 앱 단위 구조화, 모델과 마이그레이션, URL 라우팅, 뷰와 직렬화, 기본 인증 흐름처럼 백엔드 웹 프레임워크의 핵심 구성을 익혔습니다.",
           "I studied Django through real project structure, learning app organization, models and migrations, URL routing, views, serializers, and core backend workflow.",
-        ),
-      },
-      {
-        name: "FastAPI",
-        iconKey: "fastapi",
-        description: plainDescription(
-          "Active Recall Quiz 백엔드에서 API 구조를 나누고, 시험 생성, 제출, 채점, 결과 조회 흐름을 연결하면서 비교적 가볍고 명확한 웹 API 설계 경험을 쌓았습니다.",
-          "I used FastAPI in the Active Recall Quiz backend to structure APIs and connect exam creation, submission, grading, and result flows.",
-        ),
-      },
-      {
-        name: "GitHub Actions",
-        iconKey: "githubactions",
-        description: plainDescription(
-          "노트 동기화, 정적 사이트 배포, 반복 작업 체크처럼 사람이 계속 수동으로 하지 않아도 되는 흐름을 자동화하는 데 활용하고 있습니다.",
-          "I use GitHub Actions to automate repetitive workflows such as note sync and static site deployment.",
         ),
       },
     ] satisfies SkillItem[],
@@ -256,6 +171,14 @@ export const skillCategories: SkillCategory[] = [
         description: plainDescription(
           "포트폴리오 사이트와 학습용 UI를 만들면서 컴포넌트 설계, 상태 흐름, 화면 구조 분리에 익숙해졌습니다.",
           "I used React to build this portfolio and study-focused interfaces, becoming comfortable with component design, state flow, and screen composition.",
+        ),
+      },
+      {
+        name: "FastAPI",
+        iconKey: "fastapi",
+        description: plainDescription(
+          "개인 학습 프로젝트에서 FastAPI로 API를 나누고 시험 생성, 제출, 채점, 결과 조회 흐름을 연결해보며 가볍고 명확한 웹 API 구성을 경험했습니다. 타입 힌트와 Pydantic 기반 검증 덕분에 빠르게 구조를 잡는 데는 장점이 컸지만, 애플리케이션 규모가 커질수록 구조를 어디까지 세분화할지 계속 고민하게 되어서 지금은 탐색과 비교의 대상으로 두고 있습니다.",
+          "I explored FastAPI in personal projects by structuring APIs around exam creation, submission, grading, and result flows. Its type hints and Pydantic-based validation made it easy to move quickly, but it also made me think more carefully about how far to separate structure as an application grows, so I currently view it as part of my ongoing exploration and comparison.",
         ),
       },
       {
@@ -410,8 +333,67 @@ export const projectItems: ProjectItem[] = [
 
 export const experienceItems: ExperienceItem[] = [
   {
+    period: "2025.04 - Present",
+    company: {
+      ko: "삼일회계법인",
+      en: "PwC Korea",
+    },
+    position: {
+      ko: "정규직",
+      en: "Full-time",
+    },
+    summary: {
+      ko: "기업 IT 시스템의 운영 절차와 내부통제를 점검하며, 거래 데이터 흐름과 시스템 프로세스를 분석하고 데이터 정합성 검증을 통해 시스템 구조와 통제 로직을 이해하는 업무를 수행하고 있습니다.",
+      en: "Reviewing enterprise IT operating procedures and internal controls while analyzing transaction data flows and system processes, using data consistency checks to understand system structures and control logic.",
+    },
+    highlights: {
+      ko: [
+        "거래 데이터 흐름과 시스템 프로세스를 분석해 주요 처리 구조와 통제 포인트 파악",
+        "데이터 정합성 검증을 통해 시스템 구조와 통제 로직 이해",
+        "이커머스·핀테크 기업 대상 통제 design test 설계 지원",
+        "Java 코드 로직과 GitHub commit 로그를 검토하며 통제 관련 변경 흐름과 구현 근거 분석",
+      ],
+      en: [
+        "Analyzed transaction data flows and system processes to understand processing structures and key control points",
+        "Validated data consistency to build an understanding of system structures and control logic",
+        "Supported control design tests for e-commerce and fintech companies",
+        "Reviewed Java application logic and GitHub commit histories to trace control-related changes and implementation context",
+      ],
+    },
+  },
+  {
+    period: "2024.10 - 2025.04",
+    company: {
+      ko: "삼일회계법인",
+      en: "PwC Korea",
+    },
+    position: {
+      ko: "인턴",
+      en: "Intern",
+    },
+    summary: {
+      ko: "기업 IT 시스템 운영 절차와 내부통제를 점검하며, 시스템 운영 프로세스를 이해하고 데이터 검증을 통해 거래 데이터의 정합성을 확인하는 업무를 수행했습니다.",
+      en: "Supported reviews of enterprise IT operating procedures and internal controls, building an understanding of system operations while validating transaction data for consistency.",
+    },
+    highlights: {
+      ko: [
+        "기업 IT 시스템 운영 절차와 내부통제 문서 및 실제 운영 흐름 점검",
+        "시스템 운영 프로세스를 따라가며 업무 처리 구조와 주요 통제 포인트 파악",
+        "거래 데이터 검증을 통해 데이터 정합성과 처리 일관성 확인",
+      ],
+      en: [
+        "Reviewed enterprise IT operating procedures, internal control documentation, and operational flows",
+        "Followed system operation processes to understand processing structures and key control points",
+        "Validated transaction data to confirm data consistency and processing integrity",
+      ],
+    },
+  },
+  {
     period: "2024 - Present",
-    company: "Independent Projects",
+    company: {
+      ko: "개인 프로젝트",
+      en: "Independent Projects",
+    },
     position: {
       ko: "학습 시스템과 개발 워크플로우를 탐구하는 개인 프로젝트 중심 개발",
       en: "Independent development focused on learning systems and developer workflows",
@@ -437,26 +419,54 @@ export const experienceItems: ExperienceItem[] = [
 
 export const educationItems: EducationItem[] = [
   {
-    period: "Add Period",
-    institution: "Add School or Program",
+    period: "2015.02 - 2018.02",
+    institution: "대일외국어고등학교",
     program: {
-      ko: "전공 또는 교육 과정을 입력하세요",
-      en: "Add your major or education program",
+      ko: "스페인어과 졸업",
+      en: "Graduated from the Spanish Language Department",
     },
     summary: {
-      ko: "학위, 부트캠프, 교육 과정, 자격 준비 이력 등을 여기에 정리할 수 있습니다.",
-      en: "You can list your degree, bootcamp, training course, or certification preparation here.",
+      ko: "대일외국어고등학교 스페인어과에서 영어와 텝스를 중심으로 어학 기초를 탄탄히 다졌고, 스페인어 학습과 영자신문 동아리 활동을 통해 외국어를 읽고 쓰는 감각을 폭넓게 키웠습니다.",
+      en: "At Daeil Foreign Language High School, I built a strong language foundation through English and TEPS study, while broadening my reading and writing skills through Spanish coursework and English newspaper club activities.",
     },
     highlights: {
       ko: [
-        "학교명 또는 교육 기관명 입력",
-        "전공 또는 과정명 입력",
-        "배운 내용이나 핵심 성과 2~3개 정리",
+        "영어 독해, 문법, 어휘 학습을 꾸준히 이어가며 기본기를 강화",
+        "TEPS 중심 학습으로 실전형 영어 이해력과 시험 대응 역량 축적",
+        "스페인어과 수업을 통해 제2외국어 학습 경험과 언어 감각 확장",
+        "영자신문 동아리에서 기사 읽기와 의견 정리를 반복하며 시사 영어 표현에 익숙해짐",
       ],
       en: [
-        "Add your school or education provider",
-        "Add your major or course name",
-        "Summarize two or three key learnings or outcomes",
+        "Strengthened English fundamentals through steady practice in reading, grammar, and vocabulary",
+        "Built practical English comprehension and test-taking discipline through TEPS-focused study",
+        "Expanded second-language learning experience and linguistic sensitivity through the Spanish program",
+        "Developed familiarity with current-affairs English through reading articles and organizing opinions in the English newspaper club",
+      ],
+    },
+  },
+  {
+    period: "2018.03 - 2025.02",
+    institution: "동국대학교",
+    program: {
+      ko: "주전공: 경영정보학과 / 복수전공: 통계학과",
+      en: "Major in Management Information Systems / Double Major in Statistics",
+    },
+    summary: {
+      ko: "경영정보학과를 주전공으로, 통계학과를 복수전공으로 이수하며 서비스 개발, 비즈니스 프로세스 이해, 데이터 분석과 통계 모델링을 함께 학습했습니다.",
+      en: "Completed a major in Management Information Systems and a double major in Statistics, combining service development, business process understanding, data analysis, and statistical modeling.",
+    },
+    highlights: {
+      ko: [
+        "경영정보학과: 모바일시스템개발(B+), 비즈니스프로그래밍(A0), 클라우드컴퓨팅서비스(B+)",
+        "경영정보학과: 비즈니스프로세스관리(A+), 경영과학(B+), 데이터마케팅(A0), 빅데이터와비즈니스애널리틱스(A+)",
+        "통계학과: 통계수학및R실습(B+), 확률과정론(B+), 탐색적자료분석(A+)",
+        "통계학과: 회귀분석(A0), 다변량해석(B+), 데이터마이닝(B+)",
+      ],
+      en: [
+        "Management Information Systems: Mobile System Development (B+), Business Programming (A0), Cloud Computing Service (B+)",
+        "Management Information Systems: Business Process Management (A+), Management Science (B+), Data Marketing (A0), Big Data and Business Analytics (A+)",
+        "Statistics: Statistical Mathematics and R Practice (B+), Stochastic Processes (B+), Exploratory Data Analysis (A+)",
+        "Statistics: Regression Analysis (A0), Multivariate Analysis (B+), Data Mining (B+)",
       ],
     },
   },

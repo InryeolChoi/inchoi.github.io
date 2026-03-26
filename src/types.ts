@@ -45,7 +45,7 @@ export type ProjectItem = {
 
 export type ExperienceItem = {
   period: string;
-  company: string;
+  company: LocalizedText;
   position: LocalizedText;
   summary: LocalizedText;
   highlights: LocalizedList;

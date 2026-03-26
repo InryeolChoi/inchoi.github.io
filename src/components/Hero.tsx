@@ -11,6 +11,7 @@ type HeroProps = {
 export function Hero({ locale }: HeroProps) {
   const { t } = useTranslation();
   const headlineLines = profile.headline[locale].split("\n");
+  const introParagraphs = profile.intro[locale].split("\n\n");
 
   return (
     <section className="heroSection" id="about">
@@ -60,15 +61,17 @@ export function Hero({ locale }: HeroProps) {
               </span>
             ))}
           </motion.p>
-          <motion.p
+          <motion.div
             className="heroIntro"
             initial={{ y: 28, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.55, delay: 0.15 }}
           >
-            {profile.intro[locale]}
-          </motion.p>
+            {introParagraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </motion.div>
         </div>
       </div>
 
