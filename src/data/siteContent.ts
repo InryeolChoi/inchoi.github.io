@@ -289,12 +289,12 @@ export const projectItems: ProjectItem[] = [
     highlights: {
       ko: [
         "기능 추가 전 전체 서버 구조를 먼저 나누어 설계",
-        "멀티 `kqueue()` 기반 이벤트 감시 흐름 이해",
+        "멀티플렉싱 기반 논블로킹 I/O 시스템 콜인 `kqueue()`의 이벤트 감지 흐름 이해",
         "클라이언트 연결과 채널 상태를 다루는 서버 동작 방식 학습",
       ],
       en: [
         "Designed the overall server structure before expanding features",
-        "Studied event monitoring flow based on multi-`kqueue()`",
+        "Studied the event detection flow of `kqueue()`, a multiplexing-based non-blocking I/O system call",
         "Learned how the server handles client connections and channel state",
       ],
     },
