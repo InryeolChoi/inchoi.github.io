@@ -557,6 +557,7 @@ img {
   border: 1px solid var(--line);
   background: var(--surface-strong);
   box-shadow: var(--shadow-soft);
+  overflow: visible;
 }
 
 .timelineSubtitle {
@@ -564,33 +565,61 @@ img {
   font-weight: 700;
 }
 
-.inlineInfoButton {
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--accent-deep);
-  font: inherit;
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 0.14em;
+.courseGroupGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 1rem;
 }
 
-.inlineInfoButton:hover {
-  color: var(--accent);
+.courseGroupCard {
+  padding: 1rem 1.05rem;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.94), rgba(255, 255, 255, 0.98));
 }
 
-.inlineInfoButton:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-.inlineInfoNote {
-  margin: 0.45rem 0 0.7rem;
-  color: var(--ink-soft);
+.courseGroupCard h4 {
+  margin: 0;
   font-size: 0.95rem;
-  line-height: 1.5;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+
+.coursePillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+}
+
+.coursePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.7rem 0.5rem 0.8rem;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  color: var(--ink-strong);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.04);
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+
+.courseGrade {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.3rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(219, 234, 254, 0.75);
+  color: var(--accent-deep);
+  font-size: 0.8rem;
+  font-weight: 800;
 }
 
 .timelineBody .highlightList {

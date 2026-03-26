@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
@@ -13,11 +13,26 @@ type OtherProps = {
 export function Other({ locale }: OtherProps) {
   const { t } = useTranslation();
   const [openInfoIndex, setOpenInfoIndex] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handlePointerDown = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!sectionRef.current?.contains(target) || !target.closest(".certificationTitleWrap")) {
+        setOpenInfoIndex(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+    };
+  }, []);
 
   return (
     <section className="contentSection">
       <SectionHeading id="other" title={t("otherTitle")} lead={t("otherLead")} />
-      <div className="timelineList">
+      <div className="timelineList" ref={sectionRef}>
         {otherItems.map((item, index) => (
           <motion.div
             key={`${item.organization.en}-${item.period}`}
@@ -31,24 +46,26 @@ export function Other({ locale }: OtherProps) {
               <p className="timelinePeriod">{item.period}</p>
               <h3>
                 {locale === "en" && item.organization.en === "KATUSA" ? (
-                  <button
-                    type="button"
-                    className="inlineInfoButton"
-                    aria-expanded={openInfoIndex === index}
-                    aria-controls={`other-info-${index}`}
-                    onClick={() => setOpenInfoIndex(openInfoIndex === index ? null : index)}
-                  >
-                    {item.organization.en}
-                  </button>
+                  <span className="certificationTitleWrap">
+                    <button
+                      type="button"
+                      className="certificationTitleButton"
+                      aria-expanded={openInfoIndex === index}
+                      aria-controls={`other-info-${index}`}
+                      onClick={() => setOpenInfoIndex(openInfoIndex === index ? null : index)}
+                    >
+                      {item.organization.en}
+                    </button>
+                    {openInfoIndex === index ? (
+                      <span className="certificationTooltip" id={`other-info-${index}`} role="note">
+                        {t("katusaDescription")}
+                      </span>
+                    ) : null}
+                  </span>
                 ) : (
                   item.organization[locale]
                 )}
               </h3>
-              {locale === "en" && item.organization.en === "KATUSA" && openInfoIndex === index ? (
-                <p className="inlineInfoNote" id={`other-info-${index}`}>
-                  {t("katusaDescription")}
-                </p>
-              ) : null}
               <p className="timelineSubtitle">{item.role[locale]}</p>
               <p>{item.summary[locale]}</p>
               <ul className="highlightList">
