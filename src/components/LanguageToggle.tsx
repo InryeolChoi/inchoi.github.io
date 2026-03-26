@@ -8,16 +8,25 @@ type LanguageToggleProps = {
   hidden?: boolean;
 };
 
+const LANGUAGE_HINT_DISMISSED_KEY = "language_hint_dismissed_v1";
+
 export function LanguageToggle({ locale, hidden = false }: LanguageToggleProps) {
   const { i18n, t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [showHint, setShowHint] = useState(false);
   const dockRef = useRef<HTMLDivElement>(null);
+
+  const dismissHint = () => {
+    setShowHint(false);
+    window.localStorage.setItem(LANGUAGE_HINT_DISMISSED_KEY, "true");
+  };
 
   const changeLanguage = (nextLocale: Locale) => {
     startTransition(() => {
       void i18n.changeLanguage(nextLocale);
     });
+    dismissHint();
     setOpen(false);
   };
 
@@ -42,6 +51,33 @@ export function LanguageToggle({ locale, hidden = false }: LanguageToggleProps) 
       window.clearTimeout(hideTimer);
     };
   }, [hidden]);
+
+  useEffect(() => {
+    if (hidden) {
+      setShowHint(false);
+      return;
+    }
+
+    if (locale === "en") {
+      window.localStorage.setItem(LANGUAGE_HINT_DISMISSED_KEY, "true");
+      setShowHint(false);
+      return;
+    }
+
+    const dismissed = window.localStorage.getItem(LANGUAGE_HINT_DISMISSED_KEY);
+    if (dismissed) {
+      return;
+    }
+
+    setShowHint(true);
+    const timer = window.setTimeout(() => {
+      dismissHint();
+    }, 2600);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [hidden, locale]);
 
   useEffect(() => {
     if (hidden) {
@@ -70,6 +106,7 @@ export function LanguageToggle({ locale, hidden = false }: LanguageToggleProps) 
       className={isVisible ? "floatingLanguageDock" : "floatingLanguageDock isHidden"}
       aria-label={t("languageLabel")}
     >
+      {showHint ? <div className="floatingLanguageHint">English version is here</div> : null}
       <div className={open ? "floatingLanguageRail isOpen" : "floatingLanguageRail"}>
         <button
           type="button"
@@ -93,7 +130,10 @@ export function LanguageToggle({ locale, hidden = false }: LanguageToggleProps) 
         className={open ? "floatingLanguageTrigger isOpen" : "floatingLanguageTrigger"}
         aria-expanded={open}
         aria-label={t("languageLabel")}
-        onClick={() => setOpen((current) => !current)}
+        onClick={() => {
+          dismissHint();
+          setOpen((current) => !current);
+        }}
       >
         {locale.toUpperCase()}
       </button>
