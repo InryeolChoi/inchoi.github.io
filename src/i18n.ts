@@ -30,6 +30,7 @@ const resources = {
       otherLead: "경력과 교육 외에도 협업, 운영, 리더십이 드러나는 경험을 정리했습니다.",
       educationLead: "학교와 전공처럼 정규 교육 이력을 정리한 영역입니다.",
       learningHistoryLead: "42서울처럼 정규 학력과는 구분되는 프로젝트 기반 학습 경험을 정리한 영역입니다.",
+      katusaDescription: "KATUSA는 주한미군과 함께 복무하는 한국군 병사 제도입니다.",
       github: "GitHub",
       githubProfile: "GitHub",
       liveSite: "Live",
@@ -76,6 +77,8 @@ const resources = {
       otherLead: "This section captures meaningful experience outside formal work and education, including coordination and leadership.",
       educationLead: "A section for formal academic background such as schools, majors, and degrees.",
       learningHistoryLead: "A section for project-based or non-degree learning experiences such as 42 Seoul.",
+      katusaDescription:
+        "KATUSA is a Republic of Korea Army program in which Korean soldiers serve alongside the U.S. Army in Korea.",
       github: "GitHub",
       githubProfile: "GitHub",
       liveSite: "Live",

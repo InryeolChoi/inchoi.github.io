@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
@@ -11,6 +12,7 @@ type OtherProps = {
 
 export function Other({ locale }: OtherProps) {
   const { t } = useTranslation();
+  const [openInfoIndex, setOpenInfoIndex] = useState<number | null>(null);
 
   return (
     <section className="contentSection">
@@ -27,7 +29,29 @@ export function Other({ locale }: OtherProps) {
           >
             <div className="timelineBody">
               <p className="timelinePeriod">{item.period}</p>
-              <h3>{item.organization[locale]}</h3>
+              <h3>
+                {locale === "en" && item.organization.en.endsWith("KATUSA") ? (
+                  <>
+                    <span>{item.organization.en.replace(/ KATUSA$/, "")} </span>
+                    <button
+                      type="button"
+                      className="inlineInfoButton"
+                      aria-expanded={openInfoIndex === index}
+                      aria-controls={`other-info-${index}`}
+                      onClick={() => setOpenInfoIndex(openInfoIndex === index ? null : index)}
+                    >
+                      KATUSA
+                    </button>
+                  </>
+                ) : (
+                  item.organization[locale]
+                )}
+              </h3>
+              {locale === "en" && item.organization.en.endsWith("KATUSA") && openInfoIndex === index ? (
+                <p className="inlineInfoNote" id={`other-info-${index}`}>
+                  {t("katusaDescription")}
+                </p>
+              ) : null}
               <p className="timelineSubtitle">{item.role[locale]}</p>
               <p>{item.summary[locale]}</p>
               <ul className="highlightList">

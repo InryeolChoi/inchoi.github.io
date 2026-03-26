@@ -478,6 +478,35 @@ img {
   font-weight: 700;
 }
 
+.inlineInfoButton {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent-deep);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
+.inlineInfoButton:hover {
+  color: var(--accent);
+}
+
+.inlineInfoButton:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.inlineInfoNote {
+  margin: 0.45rem 0 0.7rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 .timelineBody .highlightList {
   margin-top: 0.9rem;
 }
