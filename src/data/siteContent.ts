@@ -95,19 +95,27 @@ export const skillCategories: SkillCategory[] = [
     },
     items: [
       {
+        name: "C",
+        iconKey: "c",
+        description: {
+          ko: "기초 프로그래밍과 알고리즘 학습 과정에서 메모리와 자료구조를 더 낮은 수준에서 이해하기 위해 다뤘습니다.",
+          en: "I explored C while studying programming fundamentals and algorithms to better understand memory and low-level data structures.",
+        },
+      },
+      {
+        name: "C++",
+        iconKey: "cplusplus",
+        description: {
+          ko: "알고리즘 문제 풀이와 기본 문법 학습을 통해 자료구조와 성능 감각을 익히는 데 활용했습니다.",
+          en: "I used C++ in algorithm practice to get more comfortable with data structures and performance-oriented thinking.",
+        },
+      },
+      {
         name: "Python",
         iconKey: "python",
         description: {
           ko: "학습 앱 백엔드와 자동화 스크립트에서 사용했고, 로직을 빠르게 구현하고 실험하는 데 익숙합니다.",
           en: "I use Python in backend work and automation scripts, and I am comfortable using it to prototype and implement logic quickly.",
-        },
-      },
-      {
-        name: "PostgreSQL",
-        iconKey: "postgresql",
-        description: {
-          ko: "database-playground 저장소에서 SQL과 데이터 모델링 기초를 직접 실습하며 익혔습니다.",
-          en: "I practiced SQL and database fundamentals hands-on in the database-playground repository.",
         },
       },
       {
@@ -135,35 +143,19 @@ export const skillCategories: SkillCategory[] = [
     },
     items: [
       {
-        name: "C",
-        iconKey: "c",
+        name: "R",
+        iconKey: "r",
         description: {
-          ko: "기초 프로그래밍과 알고리즘 학습 과정에서 메모리와 자료구조를 더 낮은 수준에서 이해하기 위해 다뤘습니다.",
-          en: "I explored C while studying programming fundamentals and algorithms to better understand memory and low-level data structures.",
-        },
-      },
-      {
-        name: "C++",
-        iconKey: "cplusplus",
-        description: {
-          ko: "알고리즘 문제 풀이와 기본 문법 학습을 통해 자료구조와 성능 감각을 익히는 데 활용했습니다.",
-          en: "I used C++ in algorithm practice to get more comfortable with data structures and performance-oriented thinking.",
+          ko: "기초 통계와 데이터 처리 흐름을 이해하기 위해 문법과 패키지 사용 방식을 가볍게 학습했습니다.",
+          en: "I briefly studied R to understand basic statistics workflows and package-based data handling.",
         },
       },
       {
         name: "SwiftUI",
         iconKey: "swift",
         description: {
-          ko: "Apple 튜토리얼을 따라가며 SwiftUI 기반 앱 구조와 선언형 UI 작성 방식을 경험해봤습니다.",
+          ko: "Apple 튜토리얼을 따라가며 SwiftUI 기반 앱 구조와 선언형 UI 작성 방식을 경험해봤습니다. 특히 ",
           en: "I explored declarative UI and app structure in SwiftUI by following Apple tutorials and small practice projects.",
-        },
-      },
-      {
-        name: "R",
-        iconKey: "r",
-        description: {
-          ko: "기초 통계와 데이터 처리 흐름을 이해하기 위해 문법과 패키지 사용 방식을 가볍게 학습했습니다.",
-          en: "I briefly studied R to understand basic statistics workflows and package-based data handling.",
         },
       },
     ] satisfies SkillItem[],
