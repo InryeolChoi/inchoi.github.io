@@ -265,9 +265,50 @@ export const portfolioItems: PortfolioItem[] = [
     techStack: ["React", "TypeScript", "Vite", "Motion"],
     githubUrl: "https://github.com/InryeolChoi/inchoi.github.io",
   },
+  {
+    title: "심심조각",
+    description: {
+      ko: "감정 기록 기반 일기 서비스의 Spring Boot 백엔드로, 소셜 로그인과 일기 관리, AI 편지, 월간 리포트 흐름을 하나로 연결한 프로젝트입니다.",
+      en: "A Spring Boot backend for an emotion-based diary service that ties together social login, diary management, AI letters, and monthly reports.",
+    },
+    techStack: ["Spring Boot", "Java", "MySQL", "Redis", "JWT"],
+    githubUrl: "https://github.com/InryeolChoi/simsim-server",
+  },
 ];
 
 export const projectItems: ProjectItem[] = [
+  {
+    title: "심심조각",
+    role: {
+      ko: "Spring Boot 백엔드 설계, 인증 흐름 구성, AI 연동 API 구현",
+      en: "Spring Boot backend design, authentication flow setup, and AI-integrated API implementation",
+    },
+    problem: {
+      ko: "감정 기록 기반 일기 서비스는 소셜 로그인, 일기 저장과 수정, 토큰 재발급, AI 편지와 월간 리포트 생성까지 여러 흐름이 자연스럽게 이어져야 해서 인증과 데이터 저장, 외부 AI 호출을 함께 안정적으로 설계할 필요가 있었습니다.",
+      en: "An emotion-based diary service needed social login, diary creation and editing, token refresh, AI letters, and monthly reports to work together smoothly, so authentication, persistence, and AI integration had to be designed as one stable flow.",
+    },
+    approach: {
+      ko: "Spring Boot와 Spring Security, JPA를 기반으로 Google·Apple 로그인과 JWT 인증 구조를 구성하고, MySQL과 Redis를 연결해 사용자 정보와 토큰 상태를 관리했습니다. 여기에 일기 저장·조회·수정·삭제 API를 만들고, 로컬 AI 서버와 연동해 일일 편지, 요약, 월간 키워드 리포트 생성 흐름까지 하나의 백엔드 안에서 정리했습니다.",
+      en: "Using Spring Boot, Spring Security, and JPA, I set up Google and Apple login with JWT-based authentication and connected MySQL and Redis to manage user data and token state. On top of that, I built diary create, read, update, and delete APIs and integrated a local AI server so daily letters, summaries, and monthly keyword reports could be handled within a single backend flow.",
+    },
+    summary: {
+      ko: "감정 기록형 일기 서비스의 백엔드를 구축하며 인증, 데이터 저장, AI 응답 생성, 운영 기능까지 하나의 서비스 흐름으로 연결한 프로젝트입니다.",
+      en: "A project where I built the backend for an emotion-tracking diary service, connecting authentication, persistence, AI response generation, and operational features into one service flow.",
+    },
+    highlights: {
+      ko: [
+        "Google·Apple 소셜 로그인과 JWT 재발급 흐름 구현",
+        "일기 저장·조회·수정·삭제와 월별 기록 조회 API 구성",
+        "AI 편지, 요약, 월간 키워드 리포트 생성을 위한 로컬 AI 서버 연동",
+      ],
+      en: [
+        "Implemented Google and Apple social login with JWT refresh flow",
+        "Built diary create, read, update, delete, and monthly record query APIs",
+        "Integrated a local AI server for AI letters, summaries, and monthly keyword reports",
+      ],
+    },
+    githubUrl: "https://github.com/InryeolChoi/simsim-server",
+  },
   {
     title: "ft_irc",
     role: {
