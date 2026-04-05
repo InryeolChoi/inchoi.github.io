@@ -34,6 +34,9 @@
   --course-group-surface: linear-gradient(180deg, rgba(248, 250, 252, 0.94), rgba(255, 255, 255, 0.98));
   --course-pill-border: rgba(226, 232, 240, 0.95);
   --course-pill-shadow: 0 6px 16px rgba(15, 23, 42, 0.04);
+  --cta-bg: #2563eb;
+  --cta-bg-hover: #1d4ed8;
+  --cta-text: #ffffff;
 }
 
 :root[data-theme="dark"] {
@@ -65,6 +68,9 @@
   --course-group-surface: linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(17, 27, 43, 0.98));
   --course-pill-border: rgba(148, 163, 184, 0.22);
   --course-pill-shadow: 0 10px 24px rgba(2, 6, 23, 0.3);
+  --cta-bg: #2563eb;
+  --cta-bg-hover: #1d4ed8;
+  --cta-text: #ffffff;
 }
 
 :root[data-exporting-pdf="true"] {
@@ -96,6 +102,9 @@
   --course-group-surface: linear-gradient(180deg, rgba(248, 250, 252, 0.94), rgba(255, 255, 255, 0.98));
   --course-pill-border: rgba(226, 232, 240, 0.95);
   --course-pill-shadow: 0 6px 16px rgba(15, 23, 42, 0.04);
+  --cta-bg: #2563eb;
+  --cta-bg-hover: #1d4ed8;
+  --cta-text: #ffffff;
 }
 
 * {
@@ -1080,20 +1089,29 @@ img {
 }
 
 .cvButton {
+  appearance: none;
+  -webkit-appearance: none;
   min-width: 220px;
   min-height: 50px;
-  border: 1px solid var(--ink-strong);
+  border: 1px solid var(--cta-bg);
   border-radius: 999px;
-  background: var(--ink-strong);
-  color: #ffffff;
+  background: var(--cta-bg);
+  color: var(--cta-text);
   font-weight: 800;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
   box-shadow: var(--shadow-soft);
 }
 
 .cvButton:hover:not(:disabled) {
   transform: translateY(-2px);
+  border-color: var(--cta-bg-hover);
+  background: var(--cta-bg-hover);
 }
 
 .cvButton:disabled {
