@@ -47,6 +47,10 @@ const resources = {
       introTitle: "Loading profile",
       introSubtitle: "A quick look before the story begins",
       languageLabel: "Language",
+      themeLabel: "테마",
+      themeLight: "화이트",
+      themeDark: "다크",
+      themeSystem: "시스템",
     },
   },
   en: {
@@ -95,6 +99,10 @@ const resources = {
       introTitle: "Loading profile",
       introSubtitle: "A quick look before the story begins",
       languageLabel: "Language",
+      themeLabel: "Theme",
+      themeLight: "Light",
+      themeDark: "Dark",
+      themeSystem: "System",
     },
   },
 } as const;
