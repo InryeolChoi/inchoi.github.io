@@ -107,7 +107,7 @@ export function LanguageToggle({ locale, hidden = false }: LanguageToggleProps) 
       aria-label={t("languageLabel")}
     >
       <div className={open ? "floatingLanguageControl isOpen" : "floatingLanguageControl"}>
-        {showHint ? <div className="floatingLanguageHint">English version is here</div> : null}
+        {showHint ? <div className="floatingLanguageHint">language</div> : null}
         <button
           type="button"
           className={open ? "floatingLanguageTrigger isOpen" : "floatingLanguageTrigger"}
