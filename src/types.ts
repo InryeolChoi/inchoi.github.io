@@ -1,4 +1,6 @@
 export type Locale = "ko" | "en";
+export type ThemeMode = "light" | "dark" | "system";
+export type ResolvedTheme = "light" | "dark";
 
 export type LinkItem = {
   label: string;
